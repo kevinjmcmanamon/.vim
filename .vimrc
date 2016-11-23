@@ -113,3 +113,6 @@ au Syntax * RainbowParenthesesLoadBraces
 " Turn on spell checker by default
 set spell
 
+" add command to insert a new line without going into insert mode
+nmap <CR> o<Esc>
+
