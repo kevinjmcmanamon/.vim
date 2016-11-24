@@ -121,3 +121,7 @@ set spell
 " add command to insert a new line without going into insert mode
 nmap <CR> o<Esc>
 
+" show all tabs as >----
+set list
+set listchars=tab:>-
+
