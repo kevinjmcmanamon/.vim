@@ -77,6 +77,8 @@ set ignorecase
 
 " Launch NERDtree automatically
 autocmd vimenter * NERDTree
+" Jump to the main window.
+autocmd VimEnter * wincmd p
 
 " Show line at specified column (e.g. column 80)
 set colorcolumn=80
@@ -92,15 +94,17 @@ set rnu
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/devel/*,*/build/*,*/.git/*,*.so
 
-" map toggling of tagbar to F8
-map <silent> <F8> :TagbarToggle<CR>
+" map toggling of tagbar to F9
+map <silent> <F9> :TagbarToggle<CR>
 
-" map toggling of NERDTree to F9
-map <silent> <F9> :NERDTreeToggle<CR>
+" map toggling of NERDTree to F8
+map <silent> <F8> :NERDTreeToggle<CR>
 
 " Settings for solarized (colourscheme)
 syntax enable
+" the term and t_ut options help vim work better inside tmux
 set term=xterm-256color
+set t_ut=
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
