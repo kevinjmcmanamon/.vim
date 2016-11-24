@@ -125,3 +125,16 @@ nmap <CR> o<Esc>
 set list
 set listchars=tab:>-
 
+" Enable vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+" remap keys to easily switch between windows
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
+" remap keys to easily switch between buffers
+nnoremap <silent> <S-Left> :bp<CR>
+nnoremap <silent> <S-Right> :bn<CR>
+
