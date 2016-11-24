@@ -100,6 +100,7 @@ map <silent> <F9> :NERDTreeToggle<CR>
 
 " Settings for solarized (colourscheme)
 syntax enable
+set term=xterm-256color
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
