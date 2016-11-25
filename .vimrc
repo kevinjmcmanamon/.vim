@@ -141,6 +141,12 @@ nnoremap <silent> <S-Down> <c-w>j
 " remap keys to easily switch between buffers
 nnoremap <silent> <C-Left> :bp<CR>
 nnoremap <silent> <C-Right> :bn<CR>
+" prevent nerdtree from moving to another buffer from its window
+autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
+autocmd FileType nerdtree noremap <buffer> <C-Right> <nop>
+" prevent tagbar from moving to another buffer from its window
+autocmd FileType tagbar noremap <buffer> <C-Left> <nop>
+autocmd FileType tagbar noremap <buffer> <C-Right> <nop>
 
 " nice way to close the current buffer
 nnoremap <C-c> :bp\|bd #<CR>
