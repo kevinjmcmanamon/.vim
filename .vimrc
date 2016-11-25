@@ -129,12 +129,13 @@ set listchars=tab:>-
 let g:airline#extensions#tabline#enabled = 1
 
 " remap keys to easily switch between windows
-nnoremap <silent> <C-Right> <c-w>l
-nnoremap <silent> <C-Left> <c-w>h
-nnoremap <silent> <C-Up> <c-w>k
-nnoremap <silent> <C-Down> <c-w>j
+nnoremap <silent> <S-Right> <c-w>l
+nnoremap <silent> <S-Left> <c-w>h
+nnoremap <silent> <S-Up> <c-w>k
+nnoremap <silent> <S-Down> <c-w>j
 
 " remap keys to easily switch between buffers
-nnoremap <silent> <S-Left> :bp<CR>
-nnoremap <silent> <S-Right> :bn<CR>
+nnoremap <silent> <C-Left> :bp<CR>
+nnoremap <silent> <C-Right> :bn<CR>
 
+nnoremap <C-c> :bp\|bd #<CR>
