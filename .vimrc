@@ -62,13 +62,13 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-" This option forces Vim to source .vimrc file if it present in working 
+" This option forces Vim to source .vimrc file if it present in working
 " directory, thus providing a place to store project-specific configuration.
 
-" Since Vim will source .vimrc from any directory you run Vim from, this is a 
-" potential security hole; so, you should consider setting secure option. 
-" This option will restrict usage of some commands in non-default .vimrc files; 
-" commands that write to file or execute shell commands are not allowed and map 
+" Since Vim will source .vimrc from any directory you run Vim from, this is a
+" potential security hole; so, you should consider setting secure option.
+" This option will restrict usage of some commands in non-default .vimrc files;
+" commands that write to file or execute shell commands are not allowed and map
 " commands are displayed.
 set exrc
 set secure
@@ -160,3 +160,5 @@ set shiftwidth=4
 " " On pressing tab, insert 4 spaces
 set expandtab
 
+" Easymotion shortcut
+nmap s <Plug>(easymotion-bd-w)
