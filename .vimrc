@@ -122,8 +122,8 @@ au Syntax * RainbowParenthesesLoadBraces
 " Turn on spell checker by default
 set spell
 
-" add command to insert a new line without going into insert mode
-nmap <CR> o<Esc>
+" insert new line without leaving normal mode
+nmap oo o<Esc>
 
 " show all tabs as >----
 set list
