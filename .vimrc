@@ -62,6 +62,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
+" -----------------------------------------------------------------------------
+" GENERAL VIM SETTINGS
+" -----------------------------------------------------------------------------
+
 " This option forces Vim to source .vimrc file if it present in working
 " directory, thus providing a place to store project-specific configuration.
 
@@ -94,40 +98,17 @@ set number
 " Use relative line numbering
 set rnu
 
-" ctrlp
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set wildignore+=*/devel/*,*/build/*,*/.git/*,*.so
+" nice way to close the current buffer
+nnoremap <C-c> :bp\|bd #<CR>
 
-" map toggling of tagbar to F9
-map <silent> <F9> :TagbarToggle<CR>
-
-" map toggling of NERDTree to F8
-map <silent> <F8> :NERDTreeToggle<CR>
-
-" Settings for solarized (colourscheme)
-syntax enable
-" the term and t_ut options help vim work better inside tmux
-set term=xterm-256color
-set t_ut=
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
-
-" Turn on rainbow parenthese by default
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" Turn on spell checker by default
-set spell
-
-" show all tabs as >----
-set list
-set listchars=tab:>-
-
-" Enable vim-airline
-let g:airline#extensions#tabline#enabled = 1
+" set up TAB settings
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
 " remap keys to easily switch between windows
 nnoremap <silent> <S-Right> <c-w>l
@@ -138,25 +119,87 @@ nnoremap <silent> <S-Down> <c-w>j
 " remap keys to easily switch between buffers
 nnoremap <silent> <C-Left> :bp<CR>
 nnoremap <silent> <C-Right> :bn<CR>
-" prevent nerdtree from moving to another buffer from its window
-autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
-autocmd FileType nerdtree noremap <buffer> <C-Right> <nop>
+
+" Turn on spell checker by default
+set spell
+
+" show all tabs as >----
+set list
+set listchars=tab:>-
+
+" -----------------------------------------------------------------------------
+" CTRL-P
+" -----------------------------------------------------------------------------
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set wildignore+=*/devel/*,*/build/*,*/.git/*,*.so
+
+" -----------------------------------------------------------------------------
+" TAGBAR
+" -----------------------------------------------------------------------------
+
+" map toggling of tagbar to F9
+map <silent> <F9> :TagbarToggle<CR>
+
 " prevent tagbar from moving to another buffer from its window
 autocmd FileType tagbar noremap <buffer> <C-Left> <nop>
 autocmd FileType tagbar noremap <buffer> <C-Right> <nop>
 
-" nice way to close the current buffer
-nnoremap <C-c> :bp\|bd #<CR>
+" -----------------------------------------------------------------------------
+" NERDTree
+" -----------------------------------------------------------------------------
 
-" set up TAB settings
-filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" " when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" " On pressing tab, insert 4 spaces
-set expandtab
+" map toggling of NERDTree to F8
+map <silent> <F8> :NERDTreeToggle<CR>
+
+" prevent nerdtree from moving to another buffer from its window
+autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
+autocmd FileType nerdtree noremap <buffer> <C-Right> <nop>
+
+" -----------------------------------------------------------------------------
+" SOLARIZED
+" -----------------------------------------------------------------------------
+
+" Settings for solarized (colourscheme)
+syntax enable
+
+" the term and t_ut options help vim work better inside tmux
+set term=xterm-256color
+set t_ut=
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
+" -----------------------------------------------------------------------------
+" RAINBOW PARENTHESES
+" -----------------------------------------------------------------------------
+
+" Turn on rainbow parentheses by default
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" -----------------------------------------------------------------------------
+" VIM AIRLINE
+" -----------------------------------------------------------------------------
+
+" Enable vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
+" -----------------------------------------------------------------------------
+" EASY MOTION
+" -----------------------------------------------------------------------------
 
 " Easymotion shortcut
 nmap s <Plug>(easymotion-bd-w)
+
+" -----------------------------------------------------------------------------
+" YOU COMPLETE ME
+" -----------------------------------------------------------------------------
+
+" YouCompleteMe mappings
+nnoremap <F2> :YcmCompleter GoToDeclaration<CR>
+nnoremap <F3> :YcmCompleter GoTo<CR>
+nnoremap <F4> :YcmCompleter GetDoc<CR>
 
