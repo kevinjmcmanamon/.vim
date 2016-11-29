@@ -1,6 +1,21 @@
 " NOTES:
 " :retab converts all existing tabs into spaces
 "
+" Use CTRL-R " when entering a command in command mode to paste the current
+" paste buffer contents. Substitute:
+"   " for a buffer name,
+"   % for current filename,
+"   / for last search term,
+"   + for the X clipboard or a host of other substitutions.
+" CTRL-R also works in insert mode
+"
+" Example grep search:
+" :grep -R --include \*.cpp --include \*.h velocity.linear .
+" Then call :copen to view results in the quickfix view
+"
+" gcc comments the current line
+" gc<motion> comments the motion
+"
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
