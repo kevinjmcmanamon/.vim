@@ -122,9 +122,6 @@ au Syntax * RainbowParenthesesLoadBraces
 " Turn on spell checker by default
 set spell
 
-" insert new line without leaving normal mode
-nmap oo o<Esc>
-
 " show all tabs as >----
 set list
 set listchars=tab:>-
@@ -162,3 +159,4 @@ set expandtab
 
 " Easymotion shortcut
 nmap s <Plug>(easymotion-bd-w)
+
