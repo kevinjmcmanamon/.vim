@@ -1,6 +1,9 @@
 " NOTES:
+"
+" TABS:
 " :retab converts all existing tabs into spaces
 "
+" PASTE IN COMMAND MODE:
 " Use CTRL-R " when entering a command in command mode to paste the current
 " paste buffer contents. Substitute:
 "   " for a buffer name,
@@ -9,12 +12,27 @@
 "   + for the X clipboard or a host of other substitutions.
 " CTRL-R also works in insert mode
 "
+" GREP SEARCH:
 " Example grep search:
 " :grep -R --include \*.cpp --include \*.h velocity.linear .
 " Then call :copen to view results in the quickfix view
 "
+" COMMENTS:
 " gcc comments the current line
 " gc<motion> comments the motion
+"
+" SESSIONS:
+" :mksession ~/mysession.vim
+"
+" Then later you can source that vim file and you'll have your old session
+" back:
+"
+" :source ~/mysession.vim
+"
+" or open vim with the -S option:
+"
+" $ vim -S ~/mysession.vim
+"
 "
 
 set nocompatible              " be iMproved, required
@@ -98,11 +116,6 @@ set hlsearch
 " Ignore case when searching for patterns
 set ignorecase
 
-" Launch NERDtree automatically
-autocmd vimenter * NERDTree
-" Jump to the main window.
-autocmd VimEnter * wincmd p
-
 " Show line at specified column (e.g. column 80)
 set colorcolumn=80
 highlight ColorColumn ctermbg=7 guibg=lightgrey
@@ -164,8 +177,16 @@ autocmd FileType tagbar noremap <buffer> <C-Right> <nop>
 " NERDTree
 " -----------------------------------------------------------------------------
 
+" Launch NERDtree automatically
+autocmd vimenter * NERDTree
+" Jump to the main window.
+autocmd VimEnter * wincmd p
+
 " map toggling of NERDTree to F8
 map <silent> <F8> :NERDTreeToggle<CR>
+
+" map finding of file in NERDTree to F5
+map <silent> <F5> :NERDTreeFind<CR>
 
 " prevent nerdtree from moving to another buffer from its window
 autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
