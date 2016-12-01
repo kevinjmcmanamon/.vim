@@ -161,6 +161,14 @@ set listchars=tab:>-
 " " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
+" Under default settings, making changes and then opening a new file will display
+"     E37: No write since last change (add ! to override)
+" Typing :set hidden will change this behaviour
+" With :set hidden, opening a new file when the current buffer has unsaved changes
+" causes files to be hidden instead of closed. Also helps to preserve undo
+" history within a buffer.
+set hidden
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
