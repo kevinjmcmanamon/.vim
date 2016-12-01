@@ -234,7 +234,7 @@ let g:airline#extensions#tabline#enabled = 1
 " -----------------------------------------------------------------------------
 
 " Easymotion shortcut
-nmap s <Plug>(easymotion-bd-w)
+nmap f <Plug>(easymotion-bd-w)
 
 " -----------------------------------------------------------------------------
 " YOU COMPLETE ME
