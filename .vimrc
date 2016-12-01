@@ -180,6 +180,10 @@ endfor
 " Kill the capslock when leaving insert mode.
 autocmd InsertLeave * set iminsert=0
 
+" map toggling of quickfix view to F6 and F7
+map <silent> <F6> :copen<CR>
+map <silent> <F7> :ccl<CR>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
