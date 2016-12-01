@@ -169,6 +169,17 @@ autocmd FileType qf wincmd J
 " history within a buffer.
 set hidden
 
+" To use ctrl-^ to toggle "caps lock" in vim (rather than using system caps).
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+" (http://vim.wikia.com/wiki/Insert-mode_only_Caps_Lock)
+for c in range(char2nr('A'), char2nr('Z'))
+    execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+    execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+
+" Kill the capslock when leaving insert mode.
+autocmd InsertLeave * set iminsert=0
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
