@@ -191,6 +191,11 @@ map <silent> <F6> :ccl<CR>
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set wildignore+=*/devel/*,*/build/*,*/.git/*,*.so
 
+" w - begin finding a root from the current working directory outside of CtrlP
+"     instead of from the directory of the current file (default). Only applies
+"     when "r" is also present.
+let g:ctrlp_working_path_mode = 'rw'
+
 " -----------------------------------------------------------------------------
 " TAGBAR
 " -----------------------------------------------------------------------------
@@ -220,6 +225,10 @@ map <silent> <F7> :NERDTreeFind<CR>
 " prevent nerdtree from moving to another buffer from its window
 autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
 autocmd FileType nerdtree noremap <buffer> <C-Right> <nop>
+
+" Set vim's current working directory based on the current NERDTree working
+" directory
+let g:NERDTreeChDirMode = 2
 
 " -----------------------------------------------------------------------------
 " SOLARIZED
