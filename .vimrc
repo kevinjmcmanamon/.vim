@@ -148,6 +148,9 @@ nnoremap <silent> <S-Down> <c-w>j
 nnoremap <silent> <C-Left> :bp<CR>
 nnoremap <silent> <C-Right> :bn<CR>
 
+" remap Y to copy from cursor to end of the line (similar to 'C' and 'D')
+nnoremap <silent> <S-y> y$
+
 " Turn on spell checker by default
 set spell
 
