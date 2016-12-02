@@ -180,9 +180,9 @@ endfor
 " Kill the capslock when leaving insert mode.
 autocmd InsertLeave * set iminsert=0
 
-" map toggling of quickfix view to F6 and F7
-map <silent> <F6> :copen<CR>
-map <silent> <F7> :ccl<CR>
+" map toggling of quickfix view to F5 and F6
+map <silent> <F5> :copen<CR>
+map <silent> <F6> :ccl<CR>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
@@ -214,8 +214,8 @@ autocmd VimEnter * wincmd p
 " map toggling of NERDTree to F8
 map <silent> <F8> :NERDTreeToggle<CR>
 
-" map finding of file in NERDTree to F5
-map <silent> <F5> :NERDTreeFind<CR>
+" map finding of file in NERDTree to F7
+map <silent> <F7> :NERDTreeFind<CR>
 
 " prevent nerdtree from moving to another buffer from its window
 autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
