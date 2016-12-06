@@ -138,15 +138,9 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-" remap keys to easily switch between windows
-nnoremap <silent> <S-Right> <c-w>l
-nnoremap <silent> <S-Left> <c-w>h
-nnoremap <silent> <S-Up> <c-w>k
-nnoremap <silent> <S-Down> <c-w>j
-
 " remap keys to easily switch between buffers
-nnoremap <silent> <C-Left> :bp<CR>
-nnoremap <silent> <C-Right> :bn<CR>
+nnoremap <silent> <C-h> :bp<CR>
+nnoremap <silent> <C-l> :bn<CR>
 
 " remap Y to copy from cursor to end of the line (similar to 'C' and 'D')
 nnoremap <silent> <S-y> y$
@@ -207,8 +201,8 @@ let g:ctrlp_working_path_mode = 'rw'
 map <silent> <F9> :TagbarToggle<CR>
 
 " prevent tagbar from moving to another buffer from its window
-autocmd FileType tagbar noremap <buffer> <C-Left> <nop>
-autocmd FileType tagbar noremap <buffer> <C-Right> <nop>
+autocmd FileType tagbar noremap <buffer> <C-h> <nop>
+autocmd FileType tagbar noremap <buffer> <C-l> <nop>
 
 " -----------------------------------------------------------------------------
 " NERDTree
@@ -226,8 +220,8 @@ map <silent> <F8> :NERDTreeToggle<CR>
 map <silent> <F7> :NERDTreeFind<CR>
 
 " prevent nerdtree from moving to another buffer from its window
-autocmd FileType nerdtree noremap <buffer> <C-Left> <nop>
-autocmd FileType nerdtree noremap <buffer> <C-Right> <nop>
+autocmd FileType nerdtree noremap <buffer> <C-h> <nop>
+autocmd FileType nerdtree noremap <buffer> <C-l> <nop>
 
 " Set vim's current working directory based on the current NERDTree working
 " directory
