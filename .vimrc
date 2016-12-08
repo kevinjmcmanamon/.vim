@@ -182,7 +182,7 @@ map <silent> <F5> :copen<CR>
 map <silent> <F6> :ccl<CR>
 
 " In quickfix view, allow 'o' to open file without leaving quickfix view
-autocmd FileType qf map o <CR><C-w><C-p>
+autocmd BufReadPost quickfix nnoremap <buffer> o <CR><C-w><C-p>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
