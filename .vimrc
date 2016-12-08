@@ -153,9 +153,9 @@ set list
 set listchars=tab:>-
 
 " This trigger takes advantage of the fact that the quickfix window can be
-" " easily distinguished by its file-type, qf. The wincmd J command is
-" " equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
-" " the very bottom (see :help :wincmd and :help ^WJ).
+" easily distinguished by its file-type, qf. The wincmd J command is
+" equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
+" the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
 " Under default settings, making changes and then opening a new file will display
@@ -180,6 +180,9 @@ autocmd InsertLeave * set iminsert=0
 " map toggling of quickfix view to F5 and F6
 map <silent> <F5> :copen<CR>
 map <silent> <F6> :ccl<CR>
+
+" In quickfix view, allow 'o' to open file without leaving quickfix view
+autocmd FileType qf map o <CR><C-w><C-p>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
