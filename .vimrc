@@ -181,6 +181,10 @@ autocmd InsertLeave * set iminsert=0
 map <silent> <F5> :copen<CR>
 map <silent> <F6> :ccl<CR>
 
+" map shift-h and shift-l to move to previous older and newer quickfix views.
+autocmd BufReadPost quickfix nnoremap <buffer> <S-h> :col<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <S-l> :cnew<CR>
+
 " In quickfix view, allow 'o' to open file without leaving quickfix view
 autocmd BufReadPost quickfix nnoremap <buffer> o <CR><C-w><C-p>
 
