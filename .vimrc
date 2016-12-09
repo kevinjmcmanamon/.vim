@@ -177,16 +177,30 @@ endfor
 " Kill the capslock when leaving insert mode.
 autocmd InsertLeave * set iminsert=0
 
-" map toggling of quickfix view to F5 and F6
+" map toggling of quickfix view to F5
 map <silent> <F5> :copen<CR>
-map <silent> <F6> :ccl<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
 
 " map shift-h and shift-l to move to previous older and newer quickfix views.
 autocmd BufReadPost quickfix nnoremap <buffer> <S-h> :col<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <S-l> :cnew<CR>
 
-" In quickfix view, allow 'o' to open file without leaving quickfix view
-autocmd BufReadPost quickfix nnoremap <buffer> o <CR><C-w><C-p>
+" In quickfix view, allow same shortcuts as in NERDTree to open and preview
+" files in the main window or in splits:
+" o: open
+" go: preview
+" i: open split
+" gi: preview split
+" s: open vsplit
+" gs: preview vsplit
+autocmd BufReadPost quickfix nnoremap <buffer> o <CR>
+autocmd BufReadPost quickfix nnoremap <buffer> go <CR><bar>:copen<CR>
+
+autocmd BufReadPost quickfix nnoremap <buffer> i <CR><C-W>S<bar>:b#<cr><bar><C-W>j
+autocmd BufReadPost quickfix nnoremap <buffer> gi <CR><C-W>S<bar>:b#<cr><bar>:copen<CR>
+
+autocmd BufReadPost quickfix nnoremap <buffer> s <CR><bar>:vsplit<CR><bar>:b#<cr><bar><C-W>l
+autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<cr><bar>:copen<CR>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
