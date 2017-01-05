@@ -33,7 +33,16 @@
 "
 " $ vim -S ~/mysession.vim
 "
+" TURN OFF AUTO INDENT WHEN PASTING INTO VIM:
 "
+" To turn off autoindent when you paste code, there's a special "paste" mode. Type:
+"
+" :set paste
+"
+" Then paste your code. Note that the text in the tooltip now says -- INSERT (paste) --.
+" After you pasted your code, turn off the paste-mode, so that auto-indenting when you type works correctly again.
+"
+" :set nopaste
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
