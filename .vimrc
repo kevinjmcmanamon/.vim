@@ -14,8 +14,9 @@
 "
 " GREP SEARCH:
 " Example grep search:
-" :grep -R --include \*.cpp --include \*.h velocity.linear .
-" Then call :copen to view results in the quickfix view
+" :grep -Ri --include \*.cpp --include \*.h "velocity.linear" .
+" Then call :copen (or F5 using the shortcut defined below) to view results in
+" the quickfix view
 "
 " COMMENTS:
 " gcc comments the current line
@@ -43,6 +44,18 @@
 " After you pasted your code, turn off the paste-mode, so that auto-indenting when you type works correctly again.
 "
 " :set nopaste
+"
+" LISTING AND SWITCHING BUFFERS:
+"
+" To list all open buffers:
+"
+" :ls
+"
+" Then to switch to a specific buffer:
+"
+" :bu
+"
+" followed by the name or number of the buffer
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -210,6 +223,11 @@ autocmd BufReadPost quickfix nnoremap <buffer> gi <CR><C-W>S<bar>:b#<cr><bar>:co
 
 autocmd BufReadPost quickfix nnoremap <buffer> s <CR><bar>:vsplit<CR><bar>:b#<cr><bar><C-W>l
 autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<cr><bar>:copen<CR>
+
+" When F6 is pressed, a numbered list of buffer names is printed, and the user
+" needs to type a single number based on the "menu" and press enter to switch
+" to that buffer
+:nnoremap <F6> :buffers<CR>:buffer<Space>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
