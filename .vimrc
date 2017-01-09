@@ -56,7 +56,18 @@
 " :bu
 "
 " followed by the name or number of the buffer
-
+"
+" CHANGING TEXT CASE:
+"
+" You can change the case of text:
+"
+"     Toggle case "HellO" to "hELLo" with g~ then a movement.
+"     Uppercase "HellO" to "HELLO" with gU then a movement.
+"     Lowercase "HellO" to "hello" with gu then a movement.
+"
+" Alternatively, you can visually select text then press ~ to toggle case, or U
+" to convert to uppercase, or u to convert to lowercase.
+"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -75,7 +86,7 @@ Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -322,3 +333,17 @@ nnoremap <F2> :YcmCompleter GoToDeclaration<CR>
 nnoremap <F3> :YcmCompleter GoTo<CR>
 nnoremap <F4> :YcmCompleter GetDoc<CR>
 
+
+" -----------------------------------------------------------------------------
+" SYNTASTIC
+" -----------------------------------------------------------------------------
+
+" The default settings recommended by vim-syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
