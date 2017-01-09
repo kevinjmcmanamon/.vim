@@ -114,6 +114,7 @@ flags = [
 '-I', './neptune/src/seebyte_behavior/seebyte_behaviors/seebyte_characterise_quad/include',
 '-I', './neptune/src/seebyte_behavior/seebyte_behaviors/seebyte_survey_area/include',
 '-I', './neptune/src/seebyte_visualisation/seebyte_mission_visualiser/include',
+'-I', './seebyte_atr_sidescan/src/seebyte_atr_sidescan/include',
 '-I', './iver_node/src/oceanserver_iver/include',
 '-I', './iver_node/src/remote_helm/include',
 '-I', './sonar/src/seebyte_sidescan_ftp/include',
