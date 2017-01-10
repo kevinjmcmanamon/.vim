@@ -12,6 +12,17 @@
 "   + for the X clipboard or a host of other substitutions.
 " CTRL-R also works in insert mode
 "
+" RECORDING KEY STROKES FOR REPEAT JOBS:
+" (This is most useful for repeated jobs which cannot easily be done with ".")
+"
+" To start recording, press q in normal mode followed by a letter (a to z).
+" That starts recording keystrokes to the specified register. Vim displays
+" recording in the status line. Type any normal mode commands, or enter insert
+" mode and type text. To stop recording, again press q while in normal mode.
+"
+" To playback your keystrokes, press @ followed by the letter previously
+" chosen. Typing @@ repeats the last playback.
+"
 " GREP SEARCH:
 " Example grep search:
 " :grep -Ri --include \*.cpp --include \*.h "velocity.linear" .
