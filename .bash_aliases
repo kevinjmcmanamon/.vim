@@ -14,4 +14,5 @@ pyg() {
 alias dog='pyg'
 
 # alias for quick list of files in current dif
-alias l='ls -lha'
+alias l='ls -lh'
+alias la='ls -lha'
