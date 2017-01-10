@@ -12,3 +12,6 @@ pyg() {
 
 # create alias 'dog'
 alias dog='pyg'
+
+# alias for quick list of files in current dif
+alias l='ls -lha'
