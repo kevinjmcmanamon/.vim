@@ -25,9 +25,11 @@
 "
 " GREP SEARCH:
 " Example grep search:
-" :grep -Ri --include \*.cpp --include \*.h "velocity.linear" .
+" :grep! -Ri --include \*.cpp --include \*.h "velocity.linear" .
 " Then call :copen (or F5 using the shortcut defined below) to view results in
 " the quickfix view
+" [Note that the exclamation mark after 'grep' (i.e. :grep!) means that the
+" first match found will NOT be automatically opened in a buffer]
 "
 " COMMENTS:
 " gcc comments the current line
@@ -58,6 +60,7 @@
 "
 " LISTING AND SWITCHING BUFFERS:
 "
+" (Note that the F6 shortcut defined below can also be used)
 " To list all open buffers:
 "
 " :ls
