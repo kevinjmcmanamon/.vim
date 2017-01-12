@@ -115,6 +115,7 @@ flags = [
 '-I', './neptune/src/seebyte_behavior/seebyte_behaviors/seebyte_survey_area/include',
 '-I', './neptune/src/seebyte_visualisation/seebyte_mission_visualiser/include',
 '-I', './seebyte_atr_sidescan/src/seebyte_atr_sidescan/include',
+'-I', './seebyte_atr_v2/src/seebyte_atr_v2/include',
 '-I', './solar_module/catkin_ws/src/solar_utils/include',
 '-I', './solar_module/catkin_ws/src/solar_module/include',
 '-I', './solar_module/catkin_ws/src/sidescan_image_bag_generator/include',
