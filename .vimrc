@@ -347,6 +347,9 @@ nnoremap <F2> :YcmCompleter GoToDeclaration<CR>
 nnoremap <F3> :YcmCompleter GoTo<CR>
 nnoremap <F4> :YcmCompleter GetDoc<CR>
 
+" When this option is set to 1, YCM will auto-close the preview window after
+" the user leaves insert mode.
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " -----------------------------------------------------------------------------
 " SYNTASTIC
