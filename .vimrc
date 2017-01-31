@@ -82,6 +82,15 @@
 " Alternatively, you can visually select text then press ~ to toggle case, or U
 " to convert to uppercase, or u to convert to lowercase.
 "
+" CHANGING SURROUNDINGS:
+"
+" With vim-surround plugin.
+" ds" (delete surrounding) will delete the surrounding double-quotes.
+" cs)' (change surrounding) will change surrounding () to single-quotes.
+" ys<motion>] (you surround) will surround the given motion with [].
+" yss> (you surround single line) will surround the current line with <>.
+" In visual mode, an S with an argument wraps the selection.
+"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
