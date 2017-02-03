@@ -117,6 +117,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+Plugin 'henrik/vim-indexed-search'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
