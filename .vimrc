@@ -385,3 +385,5 @@ let g:syntastic_check_on_wq = 0
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 
+" set flash time to 300ms
+let g:operator#flashy#flash_time = 300
