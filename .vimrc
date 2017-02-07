@@ -118,6 +118,8 @@ Plugin 'rdnetto/YCM-Generator'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'henrik/vim-indexed-search'
+Plugin 'kana/vim-operator-user'
+Plugin 'haya14busa/vim-operator-flashy'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -374,3 +376,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" -----------------------------------------------------------------------------
+" VIM OPERATOR FLASHY
+" -----------------------------------------------------------------------------
+
+" Flash yanked text
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+
