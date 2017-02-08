@@ -266,6 +266,9 @@ autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<c
 " to that buffer
 :nnoremap <F6> :buffers<CR>:buffer<Space>
 
+" Add shortcut "ctrl-j" to change the current word with the current yanked text
+:map <C-j> cw<C-r>0<ESC>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
