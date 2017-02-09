@@ -131,6 +131,7 @@ flags = [
 '-I', './usv_node/src/ois_usv/include',
 '-I', './usv_node/src/solar_vehicle_interface/include',
 '-I', './neptune/src/seebyte_sensors/edgetech_sidescan_lib/include',
+'-I', './poker/include',
 '-isystem', '/opt/seebyte/include',
 '-isystem', '/opt/ros/indigo/include',
 '-isystem', '/usr/lib/gcc/x86_64-linux-gnu/4.8/include',
