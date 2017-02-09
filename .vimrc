@@ -269,9 +269,15 @@ autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<c
 " Add shortcut "ctrl-j" to change the current word with the current yanked text
 :map <C-j> cw<C-r>0<ESC>
 
-" Add shortcut to quickly clear search highlighting by pressing Esc, without
+" Add shortcut to quickly clear search highlighting by pressing Return, without
 " turning off search highlighting for subsequent searches
-nnoremap <esc> :noh<return><esc>
+nnoremap <CR> :noh<CR><CR>
+
+" Added shortcuts to quickly size vim windows
+nnoremap <C-E>j <C-W>5+
+nnoremap <C-E>k <C-W>5-
+nnoremap <C-E>h <C-W>5<
+nnoremap <C-E>l <C-W>5>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
