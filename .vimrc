@@ -280,11 +280,6 @@ nnoremap <C-E>k <C-W>5-
 nnoremap <C-E>h <C-W>5<
 nnoremap <C-E>l <C-W>5>
 
-" added shortcut to insert new lines above and below current line without
-" leaving normal mode
-nmap oo o<Esc>
-nmap OO O<Esc>
-
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
