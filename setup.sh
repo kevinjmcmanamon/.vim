@@ -65,6 +65,13 @@ else
     apt-get install -y xz-utils
 fi
 
+# Install vim vundle plugin manager:
+echo "Installing Vundle..."
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Now install all vim plugins
+vim +PluginInstall +qall
+
 # Install you complete me:
 echo "Installing YouCompleteMe..."
 cd ~/.vim/bundle/YouCompleteMe
