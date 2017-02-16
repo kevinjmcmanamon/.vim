@@ -84,7 +84,7 @@ fi
 
 # Now install all vim plugins
 echo "Installing vim plugins..."
-vim +PluginInstall +qall
+echo '\n' | vim +PluginInstall +qall
 
 # Install you complete me:
 echo "Installing YouCompleteMe..."
