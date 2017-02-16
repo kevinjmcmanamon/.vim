@@ -326,6 +326,11 @@ autocmd FileType nerdtree noremap <buffer> <C-l> <nop>
 " directory
 let g:NERDTreeChDirMode = 2
 
+" Set NERDTree arrows to be simple characters (avoids problems on systems that
+" can't display unicode):
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = 'v'
+
 " -----------------------------------------------------------------------------
 " SOLARIZED
 " -----------------------------------------------------------------------------
