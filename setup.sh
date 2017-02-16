@@ -65,9 +65,22 @@ else
     apt-get install -y xz-utils
 fi
 
+# check if ctags installed.  If not, install it.
+if hash ctags 2>/dev/null; then
+    echo "ctags already installed."
+else
+    echo "ctags not installed. Installing..."
+    apt-get update
+    apt-get install -y exuberant-ctags
+fi
+
 # Install vim vundle plugin manager:
-echo "Installing Vundle..."
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ ! -d "~/.vim/bundle/Vundle.vim" ]; then
+    echo "Installing Vundle..."
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+else
+    echo "~/.vim/bundle/Vundle.vim already exists.  No need to clone."
+fi
 
 # Now install all vim plugins
 vim +PluginInstall +qall
