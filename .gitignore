@@ -1,2 +1,5 @@
 bundle/*
 *.swp
+_install*
+_build*
+_logs*

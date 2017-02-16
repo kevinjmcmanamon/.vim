@@ -90,3 +90,5 @@ vim +PluginInstall +qall
 echo "Installing YouCompleteMe..."
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
+
+echo "Setup complete!"
