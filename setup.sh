@@ -124,18 +124,18 @@ if [ "$SW" = "true" ]; then
         apt-get update
         apt-get install -y exuberant-ctags
     fi
+fi
+
+if [ "$VIM" = "true" ]; then
+    echo "Installing vim plugins..."
 
     # Install vim vundle plugin manager:
-    if [ ! -d "~/.vim/bundle/Vundle.vim" ]; then
+    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
         echo "Installing Vundle..."
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
     else
         echo "~/.vim/bundle/Vundle.vim already exists.  No need to clone."
     fi
-fi
-
-if [ "$VIM" = "true" ]; then
-    echo "Installing vim plugins..."
 
     # Now install all vim plugins
     echo "Installing vim plugins..."
