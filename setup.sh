@@ -76,7 +76,7 @@ if [ "$SW" = "true" ]; then
     else
         echo "vim not installed. Installing..."
         apt-get update
-        apt-get install -y vim
+        apt-get install -y vim vim-gtk
     fi
 
     # check if python installed.  If not, install it.
