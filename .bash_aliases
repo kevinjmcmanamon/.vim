@@ -37,3 +37,6 @@ function cd_up() {
   esac
 }
 alias 'cd..'='cd_up'                                # can not name function 'cd..'
+
+# disable XON/XOFF so that ctrl-S works for forward bash history searching
+stty -ixon
