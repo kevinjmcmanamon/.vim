@@ -12,6 +12,15 @@
 "   + for the X clipboard or a host of other substitutions.
 " CTRL-R also works in insert mode
 "
+" COPY AND PASTE TO SYSTEM CLIPBOARD:
+" Can use "*yy or "+yy to copy a line to the system's clipboard.
+" Can use "*p or "+p to paste from the system's clipboard.
+" Can use :registers to view all the current vim registers
+"
+" Note that "vim --version" must return a list with +xterm_clipboard enabled
+" for this to work.  If it isn't enabled (i.e. -xterm_clipboard), then can
+" install vim-gtk (with apt-get), which should then enable it.
+"
 " RECORDING KEY STROKES FOR REPEAT JOBS:
 " (This is most useful for repeated jobs which cannot easily be done with ".")
 "
