@@ -124,6 +124,15 @@ if [ "$SW" = "true" ]; then
         apt-get update
         apt-get install -y exuberant-ctags
     fi
+
+    # check if ranger installed.  If not, install it.
+    if hash ranger 2>/dev/null; then
+        echo "ranger already installed."
+    else
+        echo "ranger not installed. Installing..."
+        apt-get update
+        apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
+    fi
 fi
 
 if [ "$VIM" = "true" ]; then
