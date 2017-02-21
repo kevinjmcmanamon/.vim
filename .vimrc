@@ -337,8 +337,8 @@ let g:NERDTreeChDirMode = 2
 
 " Set NERDTree arrows to be simple characters (avoids problems on systems that
 " can't display unicode):
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = 'v'
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " -----------------------------------------------------------------------------
 " SOLARIZED
