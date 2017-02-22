@@ -52,6 +52,7 @@ if [ "$LINKS" = "true" ]; then
     ln -s ~/.vim/.gitignore ~/.gitignore
     ln -s ~/.vim/.tmux.conf ~/.tmux.conf
     ln -s ~/.vim/.vimrc ~/.vimrc
+    ln -s ~/.vim/.inputrc ~/.inputrc
 
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
