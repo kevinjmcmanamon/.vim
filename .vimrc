@@ -129,6 +129,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -415,3 +417,15 @@ nmap Y <Plug>(operator-flashy)$
 
 " set flash time to 300ms
 let g:operator#flashy#flash_time = 300
+
+" -----------------------------------------------------------------------------
+" ULTISNIPS
+" -----------------------------------------------------------------------------
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-s>"
+let g:UltiSnipsJumpBackwardTrigger="<c-a>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
