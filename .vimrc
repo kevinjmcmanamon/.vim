@@ -319,9 +319,10 @@ autocmd FileType tagbar noremap <buffer> <C-l> <nop>
 " -----------------------------------------------------------------------------
 
 " Launch NERDtree automatically
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
+
 " Jump to the main window.
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * wincmd p
 
 " map toggling of NERDTree to F8
 map <silent> <F8> :NERDTreeToggle<CR>
