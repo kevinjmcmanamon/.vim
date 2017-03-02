@@ -50,6 +50,7 @@ if [ "$LINKS" = "true" ]; then
     # Create sym links to config files:
     ln -s ~/.vim/.bash_aliases ~/.bash_aliases
     ln -s ~/.vim/.gitignore ~/.gitignore
+    ln -s ~/.vim/.gitconfig ~/.gitconfig
     ln -s ~/.vim/.tmux.conf ~/.tmux.conf
     ln -s ~/.vim/.vimrc ~/.vimrc
     ln -s ~/.vim/.inputrc ~/.inputrc
