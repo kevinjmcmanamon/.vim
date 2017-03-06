@@ -42,4 +42,4 @@ alias 'cd..'='cd_up'                                # can not name function 'cd.
 stty -ixon
 
 # Set PS1 to make prompt look like cygwin
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h: \[\e[33m\]\w\[\e[0m\]\n\$ '
+PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h: \[\e[33m\]\w\[\e[0m\] $(__git_ps1 "(%s)")\n\$ '
