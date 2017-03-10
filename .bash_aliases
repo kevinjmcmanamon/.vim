@@ -1,7 +1,7 @@
 alias tmux='tmux -2'
 
 # set default options for grep
-alias grep='grep --color=auto --exclude-dir=build --exclude-dir=devel --exclude-dir=.svn --exclude-dir=.git --exclude-dir=.swp'
+alias grep='grep --color=auto -n --exclude-dir={build,devel,.svn,.git,.swp}'
 
 # provide alias to give cat functionality but with colour syntax highlighting
 
