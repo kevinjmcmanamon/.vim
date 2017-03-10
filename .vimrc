@@ -34,7 +34,7 @@
 "
 " GREP SEARCH:
 " Example grep search:
-" :grep! -Ri --include \*.cpp --include \*.h "velocity.linear" .
+" :grep! -Ri --include=*.{cpp,h,txt} "velocity.linear" .
 " Then call :copen (or F5 using the shortcut defined below) to view results in
 " the quickfix view
 " [Note that the exclamation mark after 'grep' (i.e. :grep!) means that the
