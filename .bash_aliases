@@ -4,6 +4,9 @@ alias tmux='tmux -2'
 alias grep='grep --color=auto --exclude-dir={build,devel,.svn,.git,.swp} --exclude=\*{.swp,.o}'
 alias grepn='grep -n'
 
+# set an alias to easily open files using the default application from the terminal
+alias o='xdg-open'
+
 # provide alias to give cat functionality but with colour syntax highlighting
 
 # create bash function to also display the file line numbers:
