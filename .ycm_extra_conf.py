@@ -135,6 +135,7 @@ flags = [
 '-I', './fdeco/fdeco-solar/src/solar_docker_base/solar_storage/include',
 '-I', './fdeco/fdeco-solar/src/solar_docker_base/solar_logging/include',
 '-I', './fdeco/fdeco-solar/src/solar_docker_base/solar_configuration/include',
+'-I', './fdeco/fdeco-solar/src/solar_docker_base/solar_identifiers/include',
 '-I', './fdeco/fdeco-solar/src/solar_examples/include',
 '-I', './fdeco/fdeco-solar/release/install/include',
 '-I', './fdeco/fdeco-solar/release/install/share/solar_examples/include',
