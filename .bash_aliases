@@ -7,6 +7,15 @@ alias grepn='grep -n'
 # set an alias to easily open files using the default application from the terminal
 alias o='xdg-open'
 
+# set aliases for git
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff --color-words'
+alias go='git checkout '
+alias gl='git lg '
+
 # provide alias to give cat functionality but with colour syntax highlighting
 
 # create bash function to also display the file line numbers:
