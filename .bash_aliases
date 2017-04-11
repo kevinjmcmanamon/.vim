@@ -2,7 +2,7 @@ alias tmux='tmux -2'
 
 # set default options for grep
 alias grep='grep --color=auto --exclude-dir={build,devel,.svn,.git,.swp} --exclude=\*{.swp,.o}'
-alias grepn='grep -n'
+alias grepn='grep -n' # needed to add this separately as tab complete with 'make' was not working otherwise
 
 # set an alias to easily open files using the default application from the terminal
 alias o='xdg-open'
