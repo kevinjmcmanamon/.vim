@@ -17,15 +17,15 @@ alias go='git checkout'
 alias gl='git lg'
 
 # Set aliases for common directories that I want to cd in to:
-alias ws='cd ~/workspace'
-alias projects='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project'
-alias neptune='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/NEPTUNE'
-alias fdeco='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/FDECO'
-alias svngeneral='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com'
-alias data='cd /media/kevin.mcmanamon/DATA'
-alias storage='cd /run/user/10110/gvfs/smb-share:server=storage,share=share'
-alias kevin='cd /run/user/10110/gvfs/smb-share:server=storage,share=kevin.mcmanamon'
-alias allhomes='cd /run/user/10110/gvfs/smb-share:server=storage,share=all-homes'
+alias cd_ws='cd ~/workspace'
+alias cd_projects='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project'
+alias cd_neptune='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/NEPTUNE'
+alias cd_fdeco='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/FDECO'
+alias cd_svngeneral='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com'
+alias cd_data='cd /media/kevin.mcmanamon/DATA'
+alias cd_storage='cd /run/user/10110/gvfs/smb-share:server=storage,share=share'
+alias cd_kevin='cd /run/user/10110/gvfs/smb-share:server=storage,share=kevin.mcmanamon'
+alias cd_allhomes='cd /run/user/10110/gvfs/smb-share:server=storage,share=all-homes'
 
 # provide alias to give cat functionality but with colour syntax highlighting
 
