@@ -18,6 +18,7 @@ alias gl='git lg'
 
 # Set aliases for common directories that I want to cd in to:
 alias ws='cd ~/workspace'
+alias projects='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project'
 alias neptune='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/NEPTUNE'
 alias fdeco='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/FDECO'
 alias svngeneral='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com'
