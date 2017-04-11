@@ -22,6 +22,9 @@ alias neptune='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/NE
 alias fdeco='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/FDECO'
 alias svngeneral='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com'
 alias data='cd /media/kevin.mcmanamon/DATA'
+alias storage='cd /run/user/10110/gvfs/smb-share:server=storage,share=share'
+alias kevin='cd /run/user/10110/gvfs/smb-share:server=storage,share=kevin.mcmanamon'
+alias allhomes='cd /run/user/10110/gvfs/smb-share:server=storage,share=all-homes'
 
 # provide alias to give cat functionality but with colour syntax highlighting
 
