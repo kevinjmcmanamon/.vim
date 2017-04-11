@@ -8,13 +8,20 @@ alias grepn='grep -n'
 alias o='xdg-open'
 
 # set aliases for git
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
+alias gs='git status'
+alias ga='git add'
+alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff --color-words'
-alias go='git checkout '
-alias gl='git lg '
+alias go='git checkout'
+alias gl='git lg'
+
+# Set aliases for common directories that I want to cd in to:
+alias ws='cd ~/workspace'
+alias neptune='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/NEPTUNE'
+alias fdeco='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/FDECO'
+alias svngeneral='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com'
+alias data='cd /media/kevin.mcmanamon/DATA'
 
 # provide alias to give cat functionality but with colour syntax highlighting
 
@@ -56,3 +63,4 @@ stty -ixon
 
 # Set PS1 to make prompt look like cygwin
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h: \[\e[33m\]\w\[\e[0m\] $(__git_ps1 "(%s)")\n\$ '
+
