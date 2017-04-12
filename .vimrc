@@ -3,6 +3,15 @@
 " TABS:
 " :retab converts all existing tabs into spaces
 "
+" WRAP EXISTING TEXT:
+" Visually select the lines of text you want to re-format using:
+"
+" v
+"
+" Reformat it using (see :h gq for more details):
+"
+" gq
+"
 " PASTE IN COMMAND MODE:
 " Use CTRL-R " when entering a command in command mode to paste the current
 " paste buffer contents. Substitute:
