@@ -15,6 +15,10 @@ alias gc='git commit'
 alias gd='git diff --color-words'
 alias go='git checkout'
 alias gl='git lg'
+alias gp='git pull'
+alias gpa='git pull --all'
+alias gpp='git pull --prune'
+alias gpap='git pull --all --prune'
 
 # Set aliases for common directories that I want to cd in to:
 alias cd_ws='cd ~/workspace'
