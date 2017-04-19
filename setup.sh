@@ -44,20 +44,23 @@ else
     echo "Option --vim not used"
 fi
 
+# Get path to current script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 if [ "$LINKS" = "true" ]; then
     echo "Setting up sym links..."
 
     # Create sym links to config files:
-    ln -s ~/.vim/.bash_aliases ~/.bash_aliases
-    ln -s ~/.vim/.gitignore ~/.gitignore
-    ln -s ~/.vim/.gitconfig ~/.gitconfig
-    ln -s ~/.vim/.tmux.conf ~/.tmux.conf
-    ln -s ~/.vim/.vimrc ~/.vimrc
-    ln -s ~/.vim/.inputrc ~/.inputrc
+    ln -s "$DIR"/.bash_aliases ~/.bash_aliases
+    ln -s "$DIR"/.gitignore ~/.gitignore
+    ln -s "$DIR"/.gitconfig ~/.gitconfig
+    ln -s "$DIR"/.tmux.conf ~/.tmux.conf
+    ln -s "$DIR"/.vimrc ~/.vimrc
+    ln -s "$DIR"/.inputrc ~/.inputrc
 
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
-    ln -s ~/.vim/.ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
+    ln -s "$DIR"/.ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
 fi
 
 if [ "$SW" = "true" ]; then
@@ -141,11 +144,11 @@ if [ "$VIM" = "true" ]; then
     echo "Installing vim plugins..."
 
     # Install vim vundle plugin manager:
-    if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    if [ ! -d "$DIR"/bundle/Vundle.vim ]; then
         echo "Installing Vundle..."
-        git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        git clone https://github.com/VundleVim/Vundle.vim.git "$DIR"/bundle/Vundle.vim
     else
-        echo "~/.vim/bundle/Vundle.vim already exists.  No need to clone."
+        echo ""$DIR"/bundle/Vundle.vim already exists.  No need to clone."
     fi
 
     # Now install all vim plugins
@@ -154,7 +157,7 @@ if [ "$VIM" = "true" ]; then
 
     # Install you complete me:
     echo "Installing YouCompleteMe..."
-    cd ~/.vim/bundle/YouCompleteMe
+    cd "$DIR"/bundle/YouCompleteMe
     ./install.py --clang-completer
 fi
 
