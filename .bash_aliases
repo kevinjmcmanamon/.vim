@@ -7,18 +7,32 @@ alias grepn='grep -n' # needed to add this separately as tab complete with 'make
 # set an alias to easily open files using the default application from the terminal
 alias o='xdg-open'
 
-# set aliases for git
+# set aliases for git (with useful tab-completion, even when using aliases)
+_completion_loader git
+alias g='git'
+__git_complete g _git
 alias gs='git status'
+__git_complete gs _git_status
 alias ga='git add'
+__git_complete ga _git_add
 alias gb='git branch'
+__git_complete gb _git_branch
 alias gc='git commit'
+__git_complete gc _git_commit
 alias gd='git diff --color-words'
+__git_complete gd _git_diff
 alias go='git checkout'
+__git_complete go _git_checkout
 alias gl='git lg'
+__git_complete gl _git_log
 alias gp='git pull'
+__git_complete gp _git_pull
 alias gpa='git pull --all'
+__git_complete gpa _git_pull
 alias gpp='git pull --prune'
+__git_complete gpp _git_pull
 alias gpap='git pull --all --prune'
+__git_complete gpap _git_pull
 
 # Set aliases for common directories that I want to cd in to:
 alias cd_ws='cd ~/workspace'
