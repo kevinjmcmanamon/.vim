@@ -57,6 +57,7 @@ if [ "$LINKS" = "true" ]; then
     ln -s "$DIR"/.tmux.conf ~/.tmux.conf
     ln -s "$DIR"/.vimrc ~/.vimrc
     ln -s "$DIR"/.inputrc ~/.inputrc
+    ln -s "$DIR"/.dircolors ~/.dircolors
 
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
