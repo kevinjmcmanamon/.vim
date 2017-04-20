@@ -8,6 +8,7 @@ alias grepn='grep -n' # needed to add this separately as tab complete with 'make
 alias o='xdg-open'
 
 # set aliases for git (with useful tab-completion, even when using aliases)
+source /usr/share/bash-completion/bash_completion
 _completion_loader git
 alias g='git'
 __git_complete g _git
