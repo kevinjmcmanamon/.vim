@@ -225,6 +225,9 @@ nnoremap <silent> <C-l> :bn<CR>
 " remap Y to copy from cursor to end of the line (similar to 'C' and 'D')
 nnoremap <silent> <S-y> y$
 
+" shortcut F10 for toggling paste and nopaste:
+set pastetoggle=<F10>
+
 " Turn on spell checker by default
 set spell
 
