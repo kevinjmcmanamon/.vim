@@ -4,6 +4,20 @@ alias tmux='tmux -2'
 alias grep='grep --color=auto --exclude-dir={build,devel,.svn,.git,.swp} --exclude=\*{.swp,.o}'
 alias grepn='grep -n' # needed to add this separately as tab complete with 'make' was not working otherwise
 
+# Useful function for grepping through MS Word documents:
+function grepdoc() {
+
+# Usage: grepdoc search_string /path/to/files
+
+find $2 -name "*.doc" |
+while read i; do catdoc "$i" |
+   grep --color=auto -iH --label="$i" "$1"; done
+
+find $2 -name "*.docx" |
+while read i; do docx2txt < "$i" |
+   grep --color=auto -iH --label="$i" "$1"; done
+}
+
 # set an alias to easily open files using the default application from the terminal
 alias o='xdg-open'
 

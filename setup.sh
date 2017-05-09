@@ -139,6 +139,24 @@ if [ "$SW" = "true" ]; then
         apt-get update
         apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
     fi
+
+    # check if catdoc installed.  If not, install it.
+    if hash catdoc 2>/dev/null; then
+        echo "catdoc already installed."
+    else
+        echo "catdoc not installed. Installing..."
+        apt-get update
+        apt-get install -y catdoc
+    fi
+
+    # check if docx2txt installed.  If not, install it.
+    if hash docx2txt 2>/dev/null; then
+        echo "docx2txt already installed."
+    else
+        echo "docx2txt not installed. Installing..."
+        apt-get update
+        apt-get install -y docx2txt
+    fi
 fi
 
 if [ "$VIM" = "true" ]; then
