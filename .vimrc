@@ -139,6 +139,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
+Plugin 'haya14busa/vim-asterisk'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -307,6 +308,9 @@ nnoremap <C-E>l <C-W>5>
 " set lazy redraw (speeds up scrolling and macro playback)
 set lazyredraw
 
+" remap Escape key to jj to make it far quicker to return to normal mode
+imap jj <Esc>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
@@ -410,22 +414,22 @@ nnoremap <F4> :YcmCompleter GetDoc<CR>
 " the user leaves insert mode.
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" -----------------------------------------------------------------------------
-" SYNTASTIC
-" -----------------------------------------------------------------------------
+" " -----------------------------------------------------------------------------
+" " SYNTASTIC
+" " -----------------------------------------------------------------------------
 
-" The default settings recommended by vim-syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" " The default settings recommended by vim-syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+" nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " -----------------------------------------------------------------------------
 " VIM OPERATOR FLASHY
@@ -450,3 +454,15 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" -----------------------------------------------------------------------------
+" VIM-ASTERISK
+" -----------------------------------------------------------------------------
+map *   <Plug>(asterisk-*)
+map #   <Plug>(asterisk-#)
+map g*  <Plug>(asterisk-g*)
+map g#  <Plug>(asterisk-g#)
+map z*  <Plug>(asterisk-z*)
+map gz* <Plug>(asterisk-gz*)
+map z#  <Plug>(asterisk-z#)
+map gz# <Plug>(asterisk-gz#)
