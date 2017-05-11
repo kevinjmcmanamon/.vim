@@ -209,7 +209,7 @@ set number
 set rnu
 
 " nice way to close the current buffer
-nnoremap <C-c> :bp\|bd #<CR>
+nnoremap <C-x> :bp\|bd #<CR>
 
 " set up TAB settings
 filetype plugin indent on
