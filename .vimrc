@@ -303,6 +303,9 @@ nnoremap <C-E>k <C-W>5-
 nnoremap <C-E>h <C-W>5<
 nnoremap <C-E>l <C-W>5>
 
+" set lazy redraw (speeds up scrolling and macro playback)
+set lazyredraw
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
