@@ -104,6 +104,9 @@ PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h: \[\e[33m\]\w\[\e[0m\] $(__git_ps1 "(%s)")\n
 # Useful alias for FDECO project to run ROS commands:
 alias d='docker run --rm --net fdeco -e ROS_MASTER_URI=http://master:11311 fdeco-solar'
 
+# Alias to remove all dangling docker images
+alias docker_rm_dangling_images='docker rmi $(docker images -q -f dangling=true)'
+
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
