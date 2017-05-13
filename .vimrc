@@ -139,7 +139,6 @@ Plugin 'tpope/vim-sensible'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
-Plugin 'haya14busa/vim-asterisk'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -456,13 +455,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 
 " -----------------------------------------------------------------------------
-" VIM-ASTERISK
+" VIM-INDEX-SEARCH
 " -----------------------------------------------------------------------------
-map *   <Plug>(asterisk-*)
-map #   <Plug>(asterisk-#)
-map g*  <Plug>(asterisk-g*)
-map g#  <Plug>(asterisk-g#)
-map z*  <Plug>(asterisk-z*)
-map gz* <Plug>(asterisk-gz*)
-map z#  <Plug>(asterisk-z#)
-map gz# <Plug>(asterisk-gz#)
+let g:indexed_search_dont_move=1
+let g:indexed_search_numbered_only=1
