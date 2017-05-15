@@ -289,8 +289,9 @@ nnoremap <C-E>l <C-W>5>
 " set lazy redraw (speeds up scrolling and macro playback)
 set lazyredraw
 
-" remap Escape key to jj to make it far quicker to return to normal mode
-imap jj <Esc>
+" remap Escape key to jk and kj to make it far quicker to return to normal mode
+imap jk <Esc>
+imap kj <Esc>
 
 " -----------------------------------------------------------------------------
 " CTRL-P

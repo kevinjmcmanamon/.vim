@@ -1,7 +1,8 @@
 set editing-mode vi
 set keymap vi-command
 set keymap vi-insert
-"jj": vi-movement-mode
+"jk": vi-movement-mode
+"kj": vi-movement-mode
 
 # Ignore case for tab completion
 set completion-ignore-case on
