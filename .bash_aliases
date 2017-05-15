@@ -74,6 +74,9 @@ alias dog='pyg'
 alias l='ls -lh'
 alias la='ls -lha'
 
+# alias to lock screen from terminal
+alias lock='gnome-screensaver-command -l'
+
 # nice shortcut to make navigating up directories more efficient:
 
 # To cd up to n dirs: cd.. n
