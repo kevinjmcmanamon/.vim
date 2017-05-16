@@ -54,10 +54,6 @@ __git_complete gpap _git_pull
 # display directory stack in a nice numbered list:
 alias dirs='dirs -v'
 
-# allow tab complete for cd to show files as well (allow us to open files with
-# cd as well)
-complete -F _longopt cd
-
 pushd_custom()
 {
    # check if dir is different to current dir (if not, do nothing):
@@ -74,9 +70,6 @@ cd_custom()
    # If no argument given, return to home dir (like default cd behaviour)
    if [ $# -eq 0 ] ; then
       pushd_custom "${HOME}"
-   # If argument is a file, open it with vim:
-   elif [ -f "$1" ]; then
-      vim "$1"
    # If argument is a number:
    elif [[ $1 =~ $re ]] ; then
       # If argument is a number, but also a directory, then cd into it:
@@ -96,7 +89,7 @@ cd_custom()
    # if "-" passed, just call pushd to stop new dirs being added to the stack
    elif [[ $1 = "-" ]] ; then
       pushd > /dev/null
-   # argument given, not a file, not a number, not a dash:
+   # argument given, not a number, not a dash:
    else
       pushd_custom "$1"
    fi

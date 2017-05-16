@@ -59,9 +59,6 @@ if [ "$LINKS" = "true" ]; then
     ln -s "$DIR"/.inputrc ~/.inputrc
     ln -s "$DIR"/.dircolors ~/.dircolors
 
-    # Make sure to call bash_aliases last in bashrc:
-    echo ". ~/.bash_aliases" >> ~/.bashrc
-
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
     ln -s "$DIR"/.ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
