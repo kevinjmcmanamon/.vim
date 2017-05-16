@@ -49,6 +49,89 @@ __git_complete gpp _git_pull
 alias gpap='git pull --all --prune'
 __git_complete gpap _git_pull
 
+# Set up commands for efficient directory navigation using directory stacks:
+
+# display directory stack in a nice numbered list:
+alias dirs='dirs -v'
+
+# allow tab complete for cd to show files as well (allow us to open files with
+# cd as well)
+complete -F _longopt cd
+
+pushd_custom()
+{
+   # check if dir is different to current dir (if not, do nothing):
+   if ! [[ "$1" -ef $PWD ]]; then
+      pushd "$1" > /dev/null
+   fi
+}
+
+cd_custom()
+{
+   # set regular expression to check for a number:
+   re='^[0-9]+$'
+
+   # If no argument given, return to home dir (like default cd behaviour)
+   if [ $# -eq 0 ] ; then
+      pushd_custom "${HOME}"
+   # If argument is a file, open it with vim:
+   elif [ -f "$1" ]; then
+      vim "$1"
+   # If argument is a number:
+   elif [[ $1 =~ $re ]] ; then
+      # If argument is a number, but also a directory, then cd into it:
+      if [ -d "$1" ]; then
+         pushd_custom "$1"
+      # otherwise, cd to the directory on the stack by its number:
+      else
+         # add current dir to stack:
+         pushd . > /dev/null
+         # increment arg by one to take into account dir just added
+         index=$(($1+1))
+         # formulate command to jump to directory on stack
+         cmd="~$index"
+         # execute command:
+         eval builtin cd "$cmd"
+      fi
+   # if "-" passed, just call pushd to stop new dirs being added to the stack
+   elif [[ $1 = "-" ]] ; then
+      pushd > /dev/null
+   # argument given, not a file, not a number, not a dash:
+   else
+      pushd_custom "$1"
+   fi
+
+   # print current directory stack
+   dirs
+}
+
+pushd_builtin()
+{
+  pushd > /dev/null
+  dirs
+}
+
+popd_builtin()
+{
+  popd > /dev/null
+  dirs
+}
+
+clear_dirs()
+{
+  dirs -c
+  dirs
+}
+
+# override cd to use pushd instead:
+alias cd='cd_custom'
+# Go to previous dir in the stack
+alias cd.='popd_builtin'
+# Flip between last two dirs:
+alias cd-='pushd_builtin'
+# Clear directory stack:
+alias cdo='clear_dirs'
+
 # Set aliases for common directories that I want to cd in to:
 alias cd_ws='cd ~/workspace'
 alias cd_projects='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project'
@@ -59,23 +142,6 @@ alias cd_data='cd /media/kevin.mcmanamon/DATA'
 alias cd_storage='cd /run/user/10110/gvfs/smb-share:server=storage,share=share'
 alias cd_kevin='cd /run/user/10110/gvfs/smb-share:server=storage,share=kevin.mcmanamon'
 alias cd_allhomes='cd /run/user/10110/gvfs/smb-share:server=storage,share=all-homes'
-
-# provide alias to give cat functionality but with colour syntax highlighting
-
-# create bash function to also display the file line numbers:
-pyg() {
-    pygmentize $1 | perl -e 'print ++$i." $_" for <>'
-}
-
-# create alias 'dog'
-alias dog='pyg'
-
-# alias for quick list of files in current dif
-alias l='ls -lh'
-alias la='ls -lha'
-
-# alias to lock screen from terminal
-alias lock='gnome-screensaver-command -l'
 
 # nice shortcut to make navigating up directories more efficient:
 
@@ -96,7 +162,25 @@ function cd_up() {
     ;;
   esac
 }
+
 alias 'cd..'='cd_up'                                # can not name function 'cd..'
+
+# provide alias to give cat functionality but with colour syntax highlighting
+
+# create bash function to also display the file line numbers:
+pyg() {
+    pygmentize $1 | perl -e 'print ++$i." $_" for <>'
+}
+
+# create alias 'dog'
+alias dog='pyg'
+
+# alias for quick list of files in current dif
+alias l='ls -lh'
+alias la='ls -lha'
+
+# alias to lock screen from terminal
+alias lock='gnome-screensaver-command -l'
 
 # disable XON/XOFF so that ctrl-S works for forward bash history searching
 stty -ixon
