@@ -54,11 +54,30 @@ __git_complete gpap _git_pull
 # display directory stack in a nice numbered list:
 alias dirs='dirs -v'
 
+rm_duplicate_dirs(){
+    declare -a new=() copy=("${DIRSTACK[@]:1}")
+    declare -A seen
+    local v i
+    seen[$PWD]=1
+    for v in "${copy[@]}"
+    do if [ -z "${seen[$v]}" ]
+       then new+=("$v")
+            seen[$v]=1
+       fi
+    done
+    dirs -c
+    for ((i=${#new[@]}-1; i>=0; i--))
+    do      builtin pushd -n "${new[i]}" >/dev/null
+    done
+}
+
 pushd_custom()
 {
    # check if dir is different to current dir (if not, do nothing):
    if ! [[ "$1" -ef $PWD ]]; then
       pushd "$1" > /dev/null
+      # remove duplicate dirs from directory stack:
+      rm_duplicate_dirs
    fi
 }
 
@@ -85,6 +104,8 @@ cd_custom()
          cmd="~$index"
          # execute command:
          eval builtin cd "$cmd"
+         # remove duplicate dirs from directory stack:
+         rm_duplicate_dirs
       fi
    # if "-" passed, just call pushd to stop new dirs being added to the stack
    elif [[ $1 = "-" ]] ; then
