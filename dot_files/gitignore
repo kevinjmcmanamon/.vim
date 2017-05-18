@@ -1,4 +1,5 @@
 bundle/*
+dot_files/tmux/*
 *.swp
 *.swo
 _install*

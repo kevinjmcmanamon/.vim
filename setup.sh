@@ -55,6 +55,7 @@ if [ "$LINKS" = "true" ]; then
     ln -s "$DIR"/dot_files/gitignore ~/.gitignore
     ln -s "$DIR"/dot_files/gitconfig ~/.gitconfig
     ln -s "$DIR"/dot_files/tmux.conf ~/.tmux.conf
+    ln -s "$DIR"/dot_files/tmux ~/.tmux
     ln -s "$DIR"/dot_files/vimrc ~/.vimrc
     ln -s "$DIR"/dot_files/inputrc ~/.inputrc
     ln -s "$DIR"/dot_files/dircolors ~/.dircolors
@@ -74,6 +75,12 @@ if [ "$SW" = "true" ]; then
         echo "tmux not installed. Installing..."
         apt-get update
         apt-get install -y tmux
+
+        # clone tmux plugin manager:
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+        # install plugins:
+        ~/.tmux/plugins/tpm/bin/install_plugins
     fi
 
     # check if vim installed.  If not, install it.
@@ -83,6 +90,15 @@ if [ "$SW" = "true" ]; then
         echo "vim not installed. Installing..."
         apt-get update
         apt-get install -y vim vim-gtk
+    fi
+
+    # check if xsel installed.  If not, install it.
+    if hash xsel 2>/dev/null; then
+        echo "xsel already installed."
+    else
+        echo "xsel not installed. Installing..."
+        apt-get update
+        apt-get install -y xsel
     fi
 
     # check if python installed.  If not, install it.
