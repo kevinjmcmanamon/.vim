@@ -51,17 +51,17 @@ if [ "$LINKS" = "true" ]; then
     echo "Setting up sym links..."
 
     # Create sym links to config files:
-    ln -s "$DIR"/.bash_aliases ~/.bash_aliases
-    ln -s "$DIR"/.gitignore ~/.gitignore
-    ln -s "$DIR"/.gitconfig ~/.gitconfig
-    ln -s "$DIR"/.tmux.conf ~/.tmux.conf
-    ln -s "$DIR"/.vimrc ~/.vimrc
-    ln -s "$DIR"/.inputrc ~/.inputrc
-    ln -s "$DIR"/.dircolors ~/.dircolors
+    ln -s "$DIR"/dot_files/bash_aliases ~/.bash_aliases
+    ln -s "$DIR"/dot_files/gitignore ~/.gitignore
+    ln -s "$DIR"/dot_files/gitconfig ~/.gitconfig
+    ln -s "$DIR"/dot_files/tmux.conf ~/.tmux.conf
+    ln -s "$DIR"/dot_files/vimrc ~/.vimrc
+    ln -s "$DIR"/dot_files/inputrc ~/.inputrc
+    ln -s "$DIR"/dot_files/dircolors ~/.dircolors
 
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
-    ln -s "$DIR"/.ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
+    ln -s "$DIR"/dot_files/ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
 fi
 
 if [ "$SW" = "true" ]; then
