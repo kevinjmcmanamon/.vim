@@ -54,6 +54,7 @@ __git_complete gpap _git_pull
 # display directory stack in a nice numbered list:
 alias dirs='dirs -v'
 
+# function to remove duplicate directories from the stack:
 rm_duplicate_dirs(){
     declare -a new=() copy=("${DIRSTACK[@]:1}")
     declare -A seen
@@ -96,7 +97,7 @@ cd_custom()
          pushd_custom "$1"
       # otherwise, cd to the directory on the stack by its number:
       else
-         # add current dir to stack:
+         # add current dir to stack (otherwise, current dir is lost from the stack):
          pushd . > /dev/null
          # increment arg by one to take into account dir just added
          index=$(($1+1))
