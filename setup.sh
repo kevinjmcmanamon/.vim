@@ -55,6 +55,7 @@ if [ "$LINKS" = "true" ]; then
     ln -s "$DIR"/dot_files/gitignore ~/.gitignore
     ln -s "$DIR"/dot_files/gitconfig ~/.gitconfig
     ln -s "$DIR"/dot_files/tmux.conf ~/.tmux.conf
+    mkdir "$DIR"/dot_files/tmux/
     ln -s "$DIR"/dot_files/tmux ~/.tmux
     ln -s "$DIR"/dot_files/vimrc ~/.vimrc
     ln -s "$DIR"/dot_files/inputrc ~/.inputrc
@@ -73,6 +74,7 @@ if [ "$SW" = "true" ]; then
         echo "tmux already installed."
     else
         echo "tmux not installed. Installing..."
+        add-apt-repository -y ppa:pi-rho/dev
         apt-get update
         apt-get install -y tmux
 
