@@ -142,6 +142,7 @@ Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'terryma/vim-smooth-scroll'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -443,3 +444,11 @@ let g:UltiSnipsEditSplit="vertical"
 " -----------------------------------------------------------------------------
 let g:indexed_search_dont_move=1
 let g:indexed_search_numbered_only=1
+
+" -----------------------------------------------------------------------------
+" VIM-SMOOTH-SCROLL
+" -----------------------------------------------------------------------------
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
