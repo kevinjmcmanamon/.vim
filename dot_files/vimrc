@@ -323,6 +323,12 @@ set lazyredraw
 imap jk <Esc>
 imap kj <Esc>
 
+" shortcut for local variable replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
