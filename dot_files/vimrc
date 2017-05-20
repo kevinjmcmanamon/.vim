@@ -109,6 +109,34 @@
 " yss> (you surround single line) will surround the current line with <>.
 " In visual mode, an S with an argument wraps the selection.
 "
+" MOVING CURSOR IN SCREEN:
+"
+" zz: puts current cursor to middle of screen
+" zt: puts current cursor to top of screen
+" zb: puts current cursor to bottom of screen
+"
+" MARKS:
+"
+" To set a mark, type m followed by a letter. For example, ma sets mark a at
+" the current position (line and column).
+"
+" To jump to a mark enter an apostrophe (') or backtick (`) followed by a
+" letter. Using an apostrophe jumps to the beginning of the line holding the
+" mark, while a backtick jumps to the line and column of the mark.
+"
+" Lower case marks only apply to the current buffer.
+" Upper case marks will jump to the file and the position holding the mark.
+"
+" ma         set mark a at current cursor location
+" 'a         jump to line of mark a (first non-blank character in line)
+" `a         jump to position (line and column) of mark a
+" d'a        delete from current line to line of mark a
+" d`a        delete from current cursor position to position of mark a
+" c'a        change text from current line to line of mark a
+" y`a        yank text to unnamed buffer from cursor to position of mark a
+" :marks     list all the current marks
+" :marks aB  list marks a, B
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
