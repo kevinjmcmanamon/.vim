@@ -171,6 +171,7 @@ Plugin 'haya14busa/vim-operator-flashy'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-smooth-scroll'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -496,3 +497,15 @@ noremap <silent> <c-b> :set nornu <bar>
 noremap <silent> <c-f> :set nornu <bar>
    \ :call smooth_scroll#down(&scroll*2, 10, 4)<CR> <bar>
    \ :set rnu<CR>
+
+" -----------------------------------------------------------------------------
+" VIM-TMUX
+" -----------------------------------------------------------------------------
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <c-a>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-a>j :TmuxNavigateDown<cr>
+nnoremap <silent> <c-a>k :TmuxNavigateUp<cr>
+nnoremap <silent> <c-a>l :TmuxNavigateRight<cr>
+nnoremap <silent> <c-a>\ :TmuxNavigatePrevious<cr>
