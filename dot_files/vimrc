@@ -173,6 +173,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-smooth-scroll'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'osyo-manga/vim-over'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -510,3 +511,12 @@ nnoremap <silent> <c-a>j :TmuxNavigateDown<cr>
 nnoremap <silent> <c-a>k :TmuxNavigateUp<cr>
 nnoremap <silent> <c-a>l :TmuxNavigateRight<cr>
 nnoremap <silent> <c-a>\ :TmuxNavigatePrevious<cr>
+
+
+" -----------------------------------------------------------------------------
+" VIM-OVER
+" -----------------------------------------------------------------------------
+
+" enable vim-over by default:
+cabbrev %s OverCommandLine<cr>%s
+cabbrev '<,'>s OverCommandLine<cr>'<,'>s
