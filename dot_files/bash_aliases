@@ -1,5 +1,3 @@
-alias tmux='tmux -2'
-
 # set default options for grep
 alias grep='grep --color=auto --exclude-dir={build,devel,.svn,.git,.swp} --exclude=\*{.swp,.o}'
 alias grepn='grep -n' # needed to add this separately as tab complete with 'make' was not working otherwise
@@ -20,6 +18,22 @@ while read i; do docx2txt < "$i" |
 
 # set an alias to easily open files using the default application from the terminal
 alias o='xdg-open'
+
+# -----------------------------------------------------------------------------
+# TMUX ALIASES
+# -----------------------------------------------------------------------------
+alias tls='command tmux ls'
+alias td='command tmux detach'
+alias tmux='command tmux -2 new-session -A -s `basename $PWD`'
+alias ta='command tmux attach -t $1'
+# Allow tab completion with tmux attach alias:
+if [ -f /etc/bash_completion.d/ta ]; then
+   . /etc/bash_completion.d/ta
+fi
+
+# -----------------------------------------------------------------------------
+# GIT ALIASES
+# -----------------------------------------------------------------------------
 
 # set aliases for git (with useful tab-completion, even when using aliases)
 source /usr/share/bash-completion/bash_completion

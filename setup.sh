@@ -60,6 +60,7 @@ if [ "$LINKS" = "true" ]; then
     ln -s "$DIR"/dot_files/vimrc ~/.vimrc
     ln -s "$DIR"/dot_files/inputrc ~/.inputrc
     ln -s "$DIR"/dot_files/dircolors ~/.dircolors
+    ln -s "$DIR"/dot_files/ta /etc/bash_completion.d/ta
 
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
