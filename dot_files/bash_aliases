@@ -208,6 +208,9 @@ alias dog='pyg'
 alias l='ls -lh'
 alias la='ls -lha'
 
+# alias to source .bashrc file
+alias brc='source ~/.bashrc'
+
 # alias to lock screen from terminal
 alias lock='gnome-screensaver-command -l'
 
