@@ -335,6 +335,13 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 " Shortcut for copying and pasting to/from the system buffer
 nnoremap ; "+
 
+" set default grep options:
+set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
+
+" By default, when calling grep, use shebang to stop vim opening file
+" automatically
+cabbrev grep grep!
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
