@@ -344,6 +344,10 @@ set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
 " only if using ':grep' (and not, for example, '/grep').
 cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'grep!' : 'grep')<CR>
 
+" set shortcut to search for the word currently under the cursor in the
+" current working directory:
+nnoremap <c-s> :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
