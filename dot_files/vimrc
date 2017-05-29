@@ -283,8 +283,8 @@ map <silent> <F5> :copen<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
 
 " map leader-h and leader-l to move to previous older and newer quickfix views.
-autocmd BufReadPost quickfix nnoremap <buffer> <leader>h :col<CR><CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <leader>l :cnew<CR><CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <leader>h :col<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <leader>l :cnew<CR>
 
 " In quickfix view, allow same shortcuts as in NERDTree to open and preview
 " files in the main window or in splits:
