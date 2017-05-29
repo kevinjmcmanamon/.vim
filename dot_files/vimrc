@@ -217,9 +217,6 @@ set number
 " Use relative line numbering
 set rnu
 
-" nice way to close the current buffer
-nnoremap <leader>x :bp\|bd #<CR>
-
 " set up TAB settings
 filetype plugin indent on
 " show existing tab with 2 spaces width
@@ -229,15 +226,8 @@ set shiftwidth=2
 " On pressing tab, insert 2 spaces
 set expandtab
 
-" remap keys to easily switch between buffers
-nnoremap <silent> <leader>h :bp<CR>
-nnoremap <silent> <leader>l :bn<CR>
-
 " remap Y to copy from cursor to end of the line (similar to 'C' and 'D')
 nnoremap <silent> <S-y> y$
-
-" shortcut F10 for toggling paste and nopaste:
-set pastetoggle=<F10>
 
 " Turn on spell checker by default
 set spell
@@ -278,14 +268,6 @@ endfor
 " Kill the capslock when leaving insert mode.
 autocmd InsertLeave * set iminsert=0
 
-" map toggling of quickfix view to F5
-map <silent> <F5> :copen<CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
-
-" map leader-h and leader-l to move to previous older and newer quickfix views.
-autocmd BufReadPost quickfix nnoremap <buffer> <leader>h :col<CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <leader>l :cnew<CR>
-
 " In quickfix view, allow same shortcuts as in NERDTree to open and preview
 " files in the main window or in splits:
 " o: open
@@ -303,23 +285,9 @@ autocmd BufReadPost quickfix nnoremap <buffer> gi <CR><C-W>S<bar>:b#<cr><bar>:co
 autocmd BufReadPost quickfix nnoremap <buffer> s <CR><bar>:vsplit<CR><bar>:b#<cr><bar><C-W>l
 autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<cr><bar>:copen<CR>
 
-" When F6 is pressed, a numbered list of buffer names is printed, and the user
-" needs to type a single number based on the "menu" and press enter to switch
-" to that buffer
-:nnoremap <F6> :buffers<CR>:buffer<Space>
-
-" Add shortcut "<leader>-p" to change the current word with the current yanked text
-:map <leader>p "_cw<C-r>"<ESC>
-
 " Add shortcut to quickly clear search highlighting by pressing Return, without
 " turning off search highlighting for subsequent searches
 nnoremap <CR> :noh<CR><CR>
-
-" Added shortcuts to quickly size vim windows
-nnoremap <leader>wj <C-W>5+
-nnoremap <leader>wk <C-W>5-
-nnoremap <leader>wh <C-W>5<
-nnoremap <leader>wl <C-W>5>
 
 " set lazy redraw (speeds up scrolling and macro playback)
 set lazyredraw
@@ -327,9 +295,6 @@ set lazyredraw
 " remap Escape key to jk and kj to make it far quicker to return to normal mode
 imap jk <Esc>
 imap kj <Esc>
-
-" Shortcut for copying and pasting to/from the system buffer
-nnoremap <leader>; "+
 
 " set default grep options:
 set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
@@ -340,12 +305,73 @@ set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
 " only if using ':grep' (and not, for example, '/grep').
 cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'grep!' : 'grep')<CR>
 
+" -----------------------------------------------------------------------------
+" FUNCTION KEYS
+" -----------------------------------------------------------------------------
+
+" YouCompleteMe mappings
+nnoremap <F2> :YcmCompleter GoToDeclaration<CR>
+nnoremap <F3> :YcmCompleter GoTo<CR>
+nnoremap <F4> :YcmCompleter GetDoc<CR>
+
+" map toggling of quickfix view to F5
+map <silent> <F5> :copen<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
+
+" When F6 is pressed, a numbered list of buffer names is printed, and the user
+" needs to type a single number based on the "menu" and press enter to switch
+" to that buffer
+:nnoremap <F6> :buffers<CR>:buffer<Space>
+
+" map finding of file in NERDTree to F7
+map <silent> <F7> :NERDTreeFind<CR>
+
+" map toggling of NERDTree to F8
+map <silent> <F8> :NERDTreeToggle<CR>
+
+" map toggling of tagbar to F9
+map <silent> <F9> :TagbarToggle<CR>
+
+" shortcut F10 for toggling paste and nopaste:
+set pastetoggle=<F10>
+
+" -----------------------------------------------------------------------------
+" LEADER KEY USES
+" -----------------------------------------------------------------------------
+
+" nice way to close the current buffer
+nnoremap <leader>x :bp\|bd #<CR>
+
+" Add shortcut "<leader>-p" to change the current word with the current yanked text
+:map <leader>p "_cw<C-r>"<ESC>
+
+" remap keys to easily switch between buffers
+nnoremap <silent> <leader>h :bp<CR>
+nnoremap <silent> <leader>l :bn<CR>
+
+" map leader-h and leader-l to move to previous older and newer quickfix views.
+autocmd BufReadPost quickfix nnoremap <buffer> <leader>h :col<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <leader>l :cnew<CR>
+
+" Added shortcuts to quickly size vim windows
+nnoremap <leader>wj <C-W>5+
+nnoremap <leader>wk <C-W>5-
+nnoremap <leader>wh <C-W>5<
+nnoremap <leader>wl <C-W>5>
+
+" Shortcut for copying and pasting to/from the system buffer
+nnoremap <leader>; "+
+
 " set shortcut to search for the word currently under the cursor in the
 " current working directory:
 nnoremap <leader>s :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
 
 " add shortcut to reload vimrc without restarting vim:
 nnoremap <leader>v :so ~/.vimrc<CR>
+
+" Easymotion shortcut
+map <Leader> <Plug>(easymotion-prefix)
+nmap <leader><leader> <Plug>(easymotion-bd-w)
 
 " -----------------------------------------------------------------------------
 " CTRL-P
@@ -363,12 +389,9 @@ let g:ctrlp_working_path_mode = 'rw'
 " TAGBAR
 " -----------------------------------------------------------------------------
 
-" map toggling of tagbar to F9
-map <silent> <F9> :TagbarToggle<CR>
-
 " prevent tagbar from moving to another buffer from its window
-autocmd FileType tagbar noremap <buffer> <C-h> <nop>
-autocmd FileType tagbar noremap <buffer> <C-l> <nop>
+autocmd FileType tagbar noremap <buffer> <leader>h <nop>
+autocmd FileType tagbar noremap <buffer> <leader>l <nop>
 
 " -----------------------------------------------------------------------------
 " NERDTree
@@ -380,15 +403,9 @@ autocmd FileType tagbar noremap <buffer> <C-l> <nop>
 " Jump to the main window.
 "autocmd VimEnter * wincmd p
 
-" map toggling of NERDTree to F8
-map <silent> <F8> :NERDTreeToggle<CR>
-
-" map finding of file in NERDTree to F7
-map <silent> <F7> :NERDTreeFind<CR>
-
 " prevent nerdtree from moving to another buffer from its window
-autocmd FileType nerdtree noremap <buffer> <C-h> <nop>
-autocmd FileType nerdtree noremap <buffer> <C-l> <nop>
+autocmd FileType nerdtree noremap <buffer> <leader>h <nop>
+autocmd FileType nerdtree noremap <buffer> <leader>l <nop>
 
 " Set vim's current working directory based on the current NERDTree working
 " directory
@@ -430,22 +447,10 @@ au Syntax * RainbowParenthesesLoadBraces
 " Enable vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
-" -----------------------------------------------------------------------------
-" EASY MOTION
-" -----------------------------------------------------------------------------
-
-" Easymotion shortcut
-map <Leader> <Plug>(easymotion-prefix)
-nmap <leader><leader> <Plug>(easymotion-bd-w)
 
 " -----------------------------------------------------------------------------
 " YOU COMPLETE ME
 " -----------------------------------------------------------------------------
-
-" YouCompleteMe mappings
-nnoremap <F2> :YcmCompleter GoToDeclaration<CR>
-nnoremap <F3> :YcmCompleter GoTo<CR>
-nnoremap <F4> :YcmCompleter GetDoc<CR>
 
 " When this option is set to 1, YCM will auto-close the preview window after
 " the user leaves insert mode.
@@ -542,6 +547,8 @@ cabbrev '<,'>s OverCommandLine<cr>'<,'>s
 " -----------------------------------------------------------------------------
 
 " update defaults to avoid clashes with other custom leader mappings
+" (I don't actually use these, just set here to free space for other leader
+" commands)
 nmap <Leader>gs <Plug>GitGutterStageHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
 nmap <Leader>gp <Plug>GitGutterPreviewHunk
