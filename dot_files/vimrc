@@ -344,6 +344,9 @@ cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'grep!' : 'grep')<CR>
 " current working directory:
 nnoremap <leader>s :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
 
+" add shortcut to reload vimrc without restarting vim:
+nnoremap <leader>v :so ~/.vimrc<CR>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
