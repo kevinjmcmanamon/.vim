@@ -22,8 +22,8 @@
 " CTRL-R also works in insert mode
 "
 " COPY AND PASTE TO SYSTEM CLIPBOARD:
-" Can use "*yy or "+yy to copy a line to the system's clipboard.
-" Can use "*p or "+p to paste from the system's clipboard.
+" Can use "+yy to copy a line to the system's clipboard.
+" Can use "+p to paste from the system's clipboard.
 " Can use :registers to view all the current vim registers
 "
 " Note that "vim --version" must return a list with +xterm_clipboard enabled
@@ -67,6 +67,7 @@
 "
 " TURN OFF AUTO INDENT WHEN PASTING INTO VIM:
 "
+" (Note that the F10 shortcut defined below can also be used)
 " To turn off autoindent when you paste code, there's a special "paste" mode. Type:
 "
 " :set paste
@@ -178,18 +179,6 @@ Plugin 'osyo-manga/vim-over'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 " -----------------------------------------------------------------------------
 " GENERAL VIM SETTINGS
@@ -263,6 +252,13 @@ set listchars=tab:>-
 " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
+" This section stops the switch buffer commands (:bn :bp) from showing the
+" quickfix window
+augroup qf
+   autocmd!
+   autocmd FileType qf set nobuflisted
+augroup END
+
 " Under default settings, making changes and then opening a new file will display
 "     E37: No write since last change (add ! to override)
 " Typing :set hidden will change this behaviour
@@ -286,9 +282,9 @@ autocmd InsertLeave * set iminsert=0
 map <silent> <F5> :copen<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
 
-" map shift-h and shift-l to move to previous older and newer quickfix views.
-autocmd BufReadPost quickfix nnoremap <buffer> <S-h> :col<CR>
-autocmd BufReadPost quickfix nnoremap <buffer> <S-l> :cnew<CR>
+" map leader-h and leader-l to move to previous older and newer quickfix views.
+autocmd BufReadPost quickfix nnoremap <buffer> <leader>h :col<CR><CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <leader>l :cnew<CR><CR>
 
 " In quickfix view, allow same shortcuts as in NERDTree to open and preview
 " files in the main window or in splits:
@@ -320,10 +316,10 @@ autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<c
 nnoremap <CR> :noh<CR><CR>
 
 " Added shortcuts to quickly size vim windows
-nnoremap <leader>sj <C-W>5+
-nnoremap <leader>sk <C-W>5-
-nnoremap <leader>sh <C-W>5<
-nnoremap <leader>sl <C-W>5>
+nnoremap <leader>wj <C-W>5+
+nnoremap <leader>wk <C-W>5-
+nnoremap <leader>wh <C-W>5<
+nnoremap <leader>wl <C-W>5>
 
 " set lazy redraw (speeds up scrolling and macro playback)
 set lazyredraw
@@ -346,7 +342,7 @@ cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'grep!' : 'grep')<CR>
 
 " set shortcut to search for the word currently under the cursor in the
 " current working directory:
-nnoremap <c-s> :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
+nnoremap <leader>s :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
