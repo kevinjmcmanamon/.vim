@@ -286,8 +286,9 @@ autocmd BufReadPost quickfix nnoremap <buffer> s <CR><bar>:vsplit<CR><bar>:b#<cr
 autocmd BufReadPost quickfix nnoremap <buffer> gs <CR><bar>:vsplit<CR><bar>:b#<cr><bar>:copen<CR>
 
 " Add shortcut to quickly clear search highlighting by pressing Return, without
-" turning off search highlighting for subsequent searches
-nnoremap <CR> :noh<CR><CR>
+" turning off search highlighting for subsequent searches (also resets
+" case-insensitive searching)
+nnoremap <CR> :noh<CR> :set ic<CR><CR>
 
 " set lazy redraw (speeds up scrolling and macro playback)
 set lazyredraw
@@ -372,6 +373,11 @@ nnoremap <leader>v :so ~/.vimrc<CR>
 " Easymotion shortcut
 map <Leader> <Plug>(easymotion-prefix)
 nmap <leader><leader> <Plug>(easymotion-bd-w)
+
+" Set so that <leader>/ carries out a case-sensitive search.  Simple slash
+" (without leader) carries out a case-insensitive search:
+nnoremap <leader>/ :set noic<CR> /
+nnoremap / :set ic<CR> /
 
 " -----------------------------------------------------------------------------
 " CTRL-P
