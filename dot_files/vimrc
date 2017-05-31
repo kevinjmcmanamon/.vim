@@ -376,17 +376,10 @@ nnoremap <leader>v :so ~/.vimrc<CR>
 map <Leader> <Plug>(easymotion-prefix)
 nmap <leader><leader> <Plug>(easymotion-bd-w)
 
-" Set so that <leader>/, <leader>?, <leader>*, and <leader># carries out a
-" case-sensitive search.  Simple slash (without leader) carries out a
-" case-insensitive search:
-nnoremap <leader>/ :set noic<CR> /
-nnoremap / :set ic<CR> /
-nnoremap <leader>? :set noic<CR> ?
-nnoremap ? :set ic<CR> ?
-nnoremap <leader>* :set noic<CR> *<s-n>
-nnoremap * :set ic<CR> *<s-n>
-nnoremap <leader># :set noic<CR> #<s-n>
-nnoremap # :set ic<CR> #<s-n>
+" Set so that <leader>c sets 'no ignore case' to perform case sensitive
+" searches.  <leader>c would typically be called before using *, #, /, ?, or
+" :%s commands to carry out case sensitive searching.
+nnoremap <leader>c :set noic<CR>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
