@@ -166,6 +166,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
@@ -175,6 +176,7 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'osyo-manga/vim-over'
+Plugin 'vimwiki/vimwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
