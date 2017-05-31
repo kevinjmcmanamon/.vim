@@ -155,13 +155,13 @@ Plugin 'scrooloose/nerdTree'
 Plugin 'bling/vim-airline'
 Plugin 'majutsushi/tagbar'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
 " Plugin 'vim-syntastic/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
@@ -374,15 +374,17 @@ nnoremap <leader>v :so ~/.vimrc<CR>
 map <Leader> <Plug>(easymotion-prefix)
 nmap <leader><leader> <Plug>(easymotion-bd-w)
 
-" Set so that <leader>/ carries out a case-sensitive search.  Simple slash
-" (without leader) carries out a case-insensitive search:
+" Set so that <leader>/, <leader>?, <leader>*, and <leader># carries out a
+" case-sensitive search.  Simple slash (without leader) carries out a
+" case-insensitive search:
 nnoremap <leader>/ :set noic<CR> /
 nnoremap / :set ic<CR> /
-
-" use leader (instead of ctrl) to do number increasing and decreasing
-" (done to avoid using ctrl-a, which clashes with my tmux prefix)
-nnoremap <leader>a <c-a>
-nnoremap <leader>x <c-x>
+nnoremap <leader>? :set noic<CR> ?
+nnoremap ? :set ic<CR> ?
+nnoremap <leader>* :set noic<CR> *
+nnoremap * :set ic<CR> *
+nnoremap <leader># :set noic<CR> #
+nnoremap # :set ic<CR> #
 
 " -----------------------------------------------------------------------------
 " CTRL-P
