@@ -379,6 +379,11 @@ nmap <leader><leader> <Plug>(easymotion-bd-w)
 nnoremap <leader>/ :set noic<CR> /
 nnoremap / :set ic<CR> /
 
+" use leader (instead of ctrl) to do number increasing and decreasing
+" (done to avoid using ctrl-a, which clashes with my tmux prefix)
+nnoremap <leader>a <c-a>
+nnoremap <leader>x <c-x>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
