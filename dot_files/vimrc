@@ -383,10 +383,10 @@ nnoremap <leader>/ :set noic<CR> /
 nnoremap / :set ic<CR> /
 nnoremap <leader>? :set noic<CR> ?
 nnoremap ? :set ic<CR> ?
-nnoremap <leader>* :set noic<CR> *
-nnoremap * :set ic<CR> *
-nnoremap <leader># :set noic<CR> #
-nnoremap # :set ic<CR> #
+nnoremap <leader>* :set noic<CR> *<s-n>
+nnoremap * :set ic<CR> *<s-n>
+nnoremap <leader># :set noic<CR> #<s-n>
+nnoremap # :set ic<CR> #<s-n>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
