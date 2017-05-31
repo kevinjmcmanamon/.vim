@@ -237,6 +237,12 @@ alias d='docker run --rm --net fdeco -e ROS_MASTER_URI=http://master:11311 fdeco
 # Alias to remove all dangling docker images
 alias docker-rm-dangling-images='docker rmi $(docker images -q -f dangling=true)'
 
+# Alias to remove all docker containers
+alias docker-rm-all-containers='docker rm $(docker ps -a -q)'
+
+# Alias to stop all docker containers
+alias docker-stop-all-containers='docker stop $(docker ps -a -q)'
+
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
