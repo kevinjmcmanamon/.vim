@@ -65,6 +65,9 @@ if [ "$LINKS" = "true" ]; then
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
     ln -s "$DIR"/dot_files/ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
+
+    # create link to dropbox vimwiki directory from default vimwiki location:
+    ln -s ~/Dropbox/my_wiki/vimwiki ~/vimwiki
 fi
 
 if [ "$SW" = "true" ]; then
