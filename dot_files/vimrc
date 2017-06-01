@@ -561,3 +561,29 @@ nmap <Leader>gs <Plug>GitGutterStageHunk
 nmap <Leader>gu <Plug>GitGutterUndoHunk
 nmap <Leader>gp <Plug>GitGutterPreviewHunk
 
+" -----------------------------------------------------------------------------
+" VIMWIKI
+" -----------------------------------------------------------------------------
+
+" From vimwiki documentation:
+" If your preferred wiki extension is .txt then you can >
+"     let g:vimwiki_global_ext = 0
+" to restrict Vimwiki's operation to only those paths listed in g:vimwiki_list.
+" Other text files wouldn't be treated as wiki pages.
+let g:vimwiki_global_ext = 0
+
+" customise main wiki using vimwiki list:
+let wiki_1 = {}
+let wiki_1.path = '~/vimwiki/'
+let wiki_1.path_html = '~/vimwiki/html'
+let wiki_1.ext = '.txt'
+let wiki_1.syntax = 'markdown'
+
+" Can customise secondaty wikis if necessary:
+" let wiki_2 = {}
+" let wiki_2.path = '~/project_docs/'
+" let wiki_2.index = 'main'
+
+let g:vimwiki_list = [wiki_1]
+" let g:vimwiki_list = [wiki_1, wiki_2]
+
