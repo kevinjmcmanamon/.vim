@@ -576,7 +576,7 @@ let g:vimwiki_global_ext = 0
 let wiki_1 = {}
 let wiki_1.path = '~/vimwiki/'
 let wiki_1.path_html = '~/vimwiki/html'
-let wiki_1.ext = '.txt'
+let wiki_1.ext = '.md'
 let wiki_1.syntax = 'markdown'
 
 " Can customise secondaty wikis if necessary:
