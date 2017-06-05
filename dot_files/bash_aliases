@@ -243,6 +243,14 @@ alias docker-rm-all-containers='docker rm $(docker ps -a -q)'
 # Alias to stop all docker containers
 alias docker-stop-all-containers='docker stop $(docker ps -a -q)'
 
+# Alias to launch my dropbox running in a docker container (for running dropbox
+# at work)
+alias docker-dropbox='docker run -d --restart=always --name=dropbox \
+  -v ~/vimwiki:/dbox/Dropbox/_vimwiki \
+  -e DBOX_UID=`id -u $USER` \
+  -e DBOX_GID=`id -g $USER` \
+  janeczku/dropbox'
+
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
