@@ -2,6 +2,7 @@
 export MY_GREP_OPTIONS="--color=auto \
    --exclude=*.swp \
    --exclude=*.o \
+   --exclude=*.pyc \
    --exclude-dir=build \
    --exclude-dir=release \
    --exclude-dir=devel \
