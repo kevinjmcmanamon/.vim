@@ -308,6 +308,12 @@ set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
 " only if using ':grep' (and not, for example, '/grep').
 cabbrev grep <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'grep!' : 'grep')<CR>
 
+" By default, when calling make, use shebang to stop vim opening file
+" automatically.
+" The (getcmdtype()==':' && getcmdpos()) makes sure the replacement happens
+" only if using ':make' (and not, for example, '/make').
+cabbrev make <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'make!' : 'make')<CR>
+
 " -----------------------------------------------------------------------------
 " FUNCTION KEYS
 " -----------------------------------------------------------------------------
