@@ -388,6 +388,11 @@ nmap <leader><leader> <Plug>(easymotion-bd-w)
 " :%s commands to carry out case sensitive searching.
 nnoremap <leader>c :set noic<CR>
 
+" Set shortcut to close all other buffers except the current one.
+" If any buffers have local changes that have not been saved, they will be
+" left open.
+nnoremap <leader><S-x> :%bd <bar> :e# <bar> :bNext <bar> :bdelete<cr>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
