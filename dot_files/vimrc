@@ -300,6 +300,13 @@ set lazyredraw
 imap jk <Esc>
 imap kj <Esc>
 
+" remap jk and kj for command line mode also (note: mapping to <Esc> in
+" command line mode will submit the command-line as if pressing Return rather.
+" To create a mapping to act like Esc in command-line mode, you must map to
+" <C-c> instead.
+cmap jk <C-c>
+cmap kj <C-c>
+
 " set default grep options:
 set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
 
