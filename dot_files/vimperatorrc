@@ -39,7 +39,7 @@ map <Space> <Leader>
 " easymotion type navigation
 :map <leader>f f
 :map <leader>F F
-:set hintchars=hjklasdfgyuiopqwertnmzxcvb
+:set hintchars=hjklasdfgyuiopwertnmzxcvb
 
 " avoid Esc key:
 :imap kj <Esc>
