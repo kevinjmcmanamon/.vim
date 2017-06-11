@@ -359,6 +359,15 @@ set pastetoggle=<F10>
 " nice way to close the current buffer
 nnoremap <leader>x :bp\|bd #<CR>
 
+" Set shortcut to close all other buffers except the current one.
+" If any buffers have local changes that have not been saved, they will be
+" left open.
+nnoremap <leader><S-x> :%bd <bar> :e# <bar> :bNext <bar> :bdelete<cr>
+
+" Add shortcut "<leader>-d" to delete the contents of the line, without
+" deleting the line itseld
+:map <leader>d 0<S-d>
+
 " Add shortcut "<leader>-p" to change the current word with the current yanked text
 :map <leader>p "_cw<C-r>"<ESC>
 
@@ -388,17 +397,12 @@ nnoremap <leader>v :so ~/.vimrc<CR>
 
 " Easymotion shortcut
 map <Leader> <Plug>(easymotion-prefix)
-nmap <leader><leader> <Plug>(easymotion-bd-w)
+nmap <leader>f <Plug>(easymotion-bd-w)
 
 " Set so that <leader>c sets 'no ignore case' to perform case sensitive
 " searches.  <leader>c would typically be called before using *, #, /, ?, or
 " :%s commands to carry out case sensitive searching.
 nnoremap <leader>c :set noic<CR>
-
-" Set shortcut to close all other buffers except the current one.
-" If any buffers have local changes that have not been saved, they will be
-" left open.
-nnoremap <leader><S-x> :%bd <bar> :e# <bar> :bNext <bar> :bdelete<cr>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
