@@ -1,0 +1,48 @@
+"3.16.0 (created: 2017/02/01 00:55:15)
+
+source! /home/kjm/.vimperatorrc.local
+
+" vim: set ft=vimperator:
+
+" To Enable map <Space>
+js <<EOM
+  window.addEventListener('keypress',function (event) {
+    var code=event.charCode;
+    if ((liberator.mode === modes.INSERT && modes.extended === modes.MENU)
+    ||(liberator.mode ==modes.NORMAL && code==32)
+    ||(liberator.mode ==modes.COMMAND_LINE && code !=32)){
+      let map = mappings.get(liberator.mode, events.toString(event));
+      if (map) {
+        event.preventDefault();
+        event.stopPropagation();
+        map.execute();
+      }
+    }
+  },false);
+EOM
+
+" My Customization
+map <Space> <Leader>
+
+" Set mappings to match ~/.vimrc:
+
+" reload config file:
+:map <leader>v :source ~/.vimperatorrc<CR>
+
+" tab switching
+:map <leader>l gt
+:map <leader>h gT
+
+" close current tab
+:map <leader>x d
+
+" easymotion type navigation
+:map <leader>f f
+:map <leader>F F
+:set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+" avoid Esc key:
+:imap kj <Esc>
+:imap jk <Esc>
+:cmap kj <Esc>
+:cmap jk <Esc>

@@ -58,6 +58,7 @@ if [ "$LINKS" = "true" ]; then
     mkdir "$DIR"/dot_files/tmux/
     ln -s "$DIR"/dot_files/tmux ~/.tmux
     ln -s "$DIR"/dot_files/vimrc ~/.vimrc
+    ln -s "$DIR"/dot_files/vimperatorrc ~/.vimperatorrc
     ln -s "$DIR"/dot_files/inputrc ~/.inputrc
     ln -s "$DIR"/dot_files/dircolors ~/.dircolors
     ln -s "$DIR"/dot_files/ta /etc/bash_completion.d/ta
