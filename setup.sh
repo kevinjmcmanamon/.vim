@@ -62,6 +62,8 @@ if [ "$LINKS" = "true" ]; then
     ln -s "$DIR"/dot_files/inputrc ~/.inputrc
     ln -s "$DIR"/dot_files/dircolors ~/.dircolors
     ln -s "$DIR"/dot_files/ta /etc/bash_completion.d/ta
+    mkdir "$DIR"/dot_files/.mutt
+    ln -s "$DIR"/dot_files/muttrc ~/.mutt/muttrc
 
     # create workspace dir (if it doesn't already exist)
     mkdir ~/workspace
@@ -179,6 +181,20 @@ if [ "$SW" = "true" ]; then
         echo "docx2txt not installed. Installing..."
         apt-get update
         apt-get install -y docx2txt
+    fi
+
+    # check if mutt installed.  If not, install it.
+    if hash mutt 2>/dev/null; then
+        echo "mutt already installed."
+    else
+        echo "mutt not installed. Installing..."
+        apt-get update
+        apt-get install -y mutt
+
+        # create necessary directories
+        mkdir -p ~/.mutt/cache/headers
+        mkdir ~/.mutt/cache/bodies
+        touch ~/.mutt/certificates
     fi
 fi
 
