@@ -404,6 +404,11 @@ nmap <leader>f <Plug>(easymotion-bd-w)
 " :%s commands to carry out case sensitive searching.
 nnoremap <leader>c :set noic<CR>
 
+" use leader key to navigate up and down across _displayed_ lines (when lines
+" are wrapped), rather than jumping to the next actual line:
+nmap <leader>j gj
+nmap <leader>k gk
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
