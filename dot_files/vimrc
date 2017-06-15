@@ -137,6 +137,14 @@
 " y`a        yank text to unnamed buffer from cursor to position of mark a
 " :marks     list all the current marks
 " :marks aB  list marks a, B
+"
+" SPELLING:
+" ]s move to next misspelled word
+" [s move to previous misspelled word
+" z= to correct a word when the cursor is on it
+" zg add word to Vim's dictionary (to stop vim complaining about it)
+" zw mark word as incorrect
+
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -233,7 +241,7 @@ set expandtab
 nnoremap <silent> <S-y> y$
 
 " Turn on spell checker by default
-set spell
+set spell spelllang=en_gb
 
 " show all tabs as >----
 set list
