@@ -238,6 +238,9 @@ alias d='docker run --rm --net fdeco -e ROS_MASTER_URI=http://master:11311 fdeco
 # Alias to remove all dangling docker images
 alias docker-rm-dangling-images='docker rmi $(docker images -q -f dangling=true)'
 
+# Alias to remove all dangling volumes
+alias docker-rm-dangling-volumes='docker volume rm $(docker volume ls -f dangling=true -q)'
+
 # Alias to remove all docker containers (except my dropbox container)
 alias docker-rm-all-containers='docker rm $(docker ps -a | grep -v dropbox | grep -v CONTAINER | awk '\''{print $1}'\'')'
 
