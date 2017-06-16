@@ -373,8 +373,13 @@ nnoremap <leader>x :bp\|bd #<CR>
 nnoremap <leader><S-x> :%bd <bar> :e# <bar> :bNext <bar> :bdelete<cr>
 
 " Add shortcut "<leader>-d" to delete the contents of the line, without
-" deleting the line itseld
+" deleting the line itself
 :map <leader>d 0<S-d>
+
+" Add shortcut "<leader>o" and "<leader>O" to insert new lines below and above
+" without leaving normal mode
+nnoremap <leader>o o<ESC>
+nnoremap <leader><s-o> <s-o><ESC>
 
 " Add shortcut "<leader>-p" to change the current word with the current yanked text
 :map <leader>p "_cw<C-r>"<ESC>
