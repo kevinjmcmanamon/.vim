@@ -255,6 +255,9 @@ alias docker-dropbox='docker run -d --restart=always --name=dropbox \
   -e DBOX_GID=`id -g $USER` \
   janeczku/dropbox'
 
+# Alias to do full clean
+alias docker-clean='docker-stop-all-containers; docker-rm-all-containers; docker-rm-dangling-images; docker-rm-dangling-volumes'
+
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
