@@ -406,7 +406,10 @@ nnoremap <leader>; "+
 nnoremap <leader>s :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
 
 " add shortcut to reload vimrc without restarting vim:
-nnoremap <leader>v :so ~/.vimrc<CR>
+nnoremap <leader><s-v> :so ~/.vimrc<CR>
+
+" add shortcut to quickly open vimrc:
+nnoremap <leader>v :e ~/.vimrc<CR>
 
 " Easymotion shortcut
 map <Leader> <Plug>(easymotion-prefix)
