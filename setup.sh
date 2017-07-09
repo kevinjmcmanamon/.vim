@@ -51,6 +51,7 @@ if [ "$LINKS" = "true" ]; then
     echo "Setting up sym links..."
 
     # Create sym links to config files:
+    ln -s "$DIR"/dot_files/my_grep ~/.my_grep
     ln -s "$DIR"/dot_files/bash_aliases ~/.bash_aliases
     ln -s "$DIR"/dot_files/gitignore ~/.gitignore
     ln -s "$DIR"/dot_files/gitconfig ~/.gitconfig

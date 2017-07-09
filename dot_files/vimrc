@@ -316,7 +316,7 @@ cmap jk <C-c>
 cmap kj <C-c>
 
 " set default grep options:
-set grepprg=grep\ -nH\ $MY_GREP_OPTIONS
+set grepprg=~/.my_grep\ -nH\
 
 " By default, when calling grep, use shebang to stop vim opening file
 " automatically.

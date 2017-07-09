@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# general grep options:
+grep_options="--color=auto"
+
+# exclude certain file types by default:
+exclude_options="--exclude=*.swp \
+  --exclude=*.o \
+  --exclude=*.pyc"
+
+# exclude certain directories by default:
+exclude_dir_options="--exclude-dir=build \
+  --exclude-dir=release \
+  --exclude-dir=devel \
+  --exclude-dir=.svn \
+  --exclude-dir=.git \
+  --exclude-dir=.swp"
+
+# Note: passing outside args to grep first.  This allows --include options to
+# still work.  If --include option is passed to grep AFTER an --exclude option,
+# the --include option doesn't do anything.
+grep $@ $grep_options $exclude_dir_options $exclude_options
+

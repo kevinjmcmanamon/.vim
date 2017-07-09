@@ -1,18 +1,7 @@
-# Using environment variable so it can be used by vim grep searches as well:
-export MY_GREP_OPTIONS="--color=auto \
-   --exclude=*.swp \
-   --exclude=*.o \
-   --exclude=*.pyc \
-   --exclude-dir=build \
-   --exclude-dir=release \
-   --exclude-dir=devel \
-   --exclude-dir=.svn \
-   --exclude-dir=.git \
-   --exclude-dir=.swp"
-
-# set default options for grep
-alias grep='grep $MY_GREP_OPTIONS'
-alias grepn='grep -n' # needed to add this separately as tab complete with 'make' was not working otherwise
+# define separate ~/.my_grep script so that grep inside vim can use it as well
+alias grep='~/.my_grep'
+# needed to add this separately as tab complete with 'make' was not working otherwise:
+alias grepn='~/.my_grep -n'
 
 # Useful function for grepping through MS Word documents:
 function grepdoc() {
