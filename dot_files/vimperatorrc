@@ -26,9 +26,6 @@ map <Space> <Leader>
 
 " Set mappings to match ~/.vimrc:
 
-" reload config file:
-:map <leader>v :source ~/.vimperatorrc<CR>
-
 " tab switching
 :map <leader>l gt
 :map <leader>h gT
@@ -41,8 +38,3 @@ map <Space> <Leader>
 :map <leader>F F
 :set hintchars=hjklasdfgyuiopwertnmzxcvb
 
-" avoid Esc key:
-:imap kj <Esc>
-:imap jk <Esc>
-:cmap kj <Esc>
-:cmap jk <Esc>
