@@ -244,6 +244,9 @@ alias docker-dropbox='docker run -d --restart=always --name=dropbox \
   -e DBOX_GID=`id -g $USER` \
   janeczku/dropbox'
 
+# Alias to get dropbox status
+alias docker-dropbox-status='docker exec -it dropbox watch -n0.1 dropbox status'
+
 # Alias to do full clean
 alias docker-clean='docker-stop-all-containers; docker-rm-all-containers; docker-rm-dangling-images; docker-rm-dangling-volumes'
 
