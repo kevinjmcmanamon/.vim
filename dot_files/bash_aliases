@@ -15,15 +15,11 @@ function grepdoc() {
     return 1;
   fi
 
-  # Usage: grepdoc search_string /path/to/files
+  # First search through all .doc files found:
+  find $2 -name "*.doc" -exec sh -c "catdoc '{}' | grep --color=auto -iH --label='{}' $1" \;
 
-  find $2 -name "*.doc" |
-  while read i; do catdoc "$i" |
-    grep --color=auto -iH --label="$i" "$1"; done
-
-    find $2 -name "*.docx" |
-    while read i; do docx2txt < "$i" |
-      grep --color=auto -iH --label="$i" "$1"; done
+  # Then search through all .docx files found:
+  find $2 -name "*.docx" -exec sh -c "docx2txt < '{}' | grep --color=auto -iH --label='{}' $1" \;
 }
 
 # set an alias to easily open files using the default application from the terminal
