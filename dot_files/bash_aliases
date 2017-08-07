@@ -6,15 +6,24 @@ alias grepn='~/.my_grep -n'
 # Useful function for grepping through MS Word documents:
 function grepdoc() {
 
-# Usage: grepdoc search_string /path/to/files
+  if [ $# -eq 0 ]; then
+    echo "Usage: $0 [string] [path]";
+    echo "";
+    echo "[string] = String to search";
+    echo "[path] = Path to files to search";
+    echo "";
+    return 1;
+  fi
 
-find $2 -name "*.doc" |
-while read i; do catdoc "$i" |
-   grep --color=auto -iH --label="$i" "$1"; done
+  # Usage: grepdoc search_string /path/to/files
 
-find $2 -name "*.docx" |
-while read i; do docx2txt < "$i" |
-   grep --color=auto -iH --label="$i" "$1"; done
+  find $2 -name "*.doc" |
+  while read i; do catdoc "$i" |
+    grep --color=auto -iH --label="$i" "$1"; done
+
+    find $2 -name "*.docx" |
+    while read i; do docx2txt < "$i" |
+      grep --color=auto -iH --label="$i" "$1"; done
 }
 
 # set an alias to easily open files using the default application from the terminal
@@ -239,7 +248,7 @@ alias docker-stop-all-containers='docker stop $(docker ps -a | grep -v dropbox |
 # Alias to launch my dropbox running in a docker container (for running dropbox
 # at work)
 alias docker-dropbox='docker run -d --restart=always --name=dropbox \
-  -v ~/vimwiki:/dbox/Dropbox/_vimwiki \
+  -v ~/dropbox:/dbox/Dropbox/ \
   -e DBOX_UID=`id -u $USER` \
   -e DBOX_GID=`id -g $USER` \
   janeczku/dropbox'
