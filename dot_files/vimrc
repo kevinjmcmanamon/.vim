@@ -218,6 +218,10 @@ set hlsearch
 " Ignore case when searching for patterns
 set ignorecase
 
+" Set clipboard to unnamedplus to more easily copy and paste between vim and
+" other applications
+set clipboard=unnamedplus
+
 " Show line at specified column (e.g. column 80)
 set colorcolumn=80
 highlight ColorColumn ctermbg=7 guibg=lightgrey
@@ -397,9 +401,6 @@ nnoremap <leader>wj <C-W>5+
 nnoremap <leader>wk <C-W>5-
 nnoremap <leader>wh <C-W>5<
 nnoremap <leader>wl <C-W>5>
-
-" Shortcut for copying and pasting to/from the system buffer
-nnoremap <leader>; "+
 
 " set shortcut to search for the word currently under the cursor in the
 " current working directory:
