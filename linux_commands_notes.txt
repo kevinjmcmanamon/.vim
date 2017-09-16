@@ -1,3 +1,0 @@
-find and replace string1 with string2 in files matching *file_name.xml located in ./ :
-
-find ./ -iname "*file_name.xml" -type f -exec sed -i 's/string1/string2/g' {} \;

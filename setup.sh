@@ -187,13 +187,13 @@ if [ "$SW" = "true" ]; then
         echo "mutt already installed."
     else
         echo "mutt not installed. Installing..."
-        apt-get update
-        apt-get install -y mutt
+        # apt-get update
+        # apt-get install -y mutt
 
-        # create necessary directories
-        mkdir -p ~/.mutt/cache/headers
-        mkdir ~/.mutt/cache/bodies
-        touch ~/.mutt/certificates
+        # # create necessary directories
+        # mkdir -p ~/.mutt/cache/headers
+        # mkdir ~/.mutt/cache/bodies
+        # touch ~/.mutt/certificates
     fi
 fi
 
