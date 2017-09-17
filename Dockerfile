@@ -1,10 +1,16 @@
 FROM ubuntu:16.04
 
+WORKDIR /root
+
 RUN apt-get update && \
-    apt-get install -y software-properties-common python-software-properties git
+    apt-get install -y \
+    software-properties-common \
+    python-software-properties \
+    git \
+    python-dev
 
-RUN cd /root && git clone https://github.com/kevinjmcmanamon/.vim
-RUN /root/.vim/setup.sh --all
-RUN echo "set encoding=utf-8" >> /root/.vimrc
+RUN git clone https://github.com/kevinjmcmanamon/.vim
+RUN .vim/setup.sh --all
+RUN echo "set encoding=utf-8" >> .vimrc
 
-CMD echo hello
+CMD bash

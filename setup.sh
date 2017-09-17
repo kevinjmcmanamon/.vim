@@ -84,6 +84,9 @@ if [ "$SW" = "true" ]; then
         apt-get update
         apt-get install -y tmux-next
 
+        # set sym link for tmux to tmux-next
+        ln -s /usr/bin/tmux-next /usr/bin/tmux
+
         # clone tmux plugin manager:
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
