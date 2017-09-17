@@ -82,7 +82,7 @@ if [ "$SW" = "true" ]; then
         echo "tmux not installed. Installing..."
         add-apt-repository -y ppa:pi-rho/dev
         apt-get update
-        apt-get install -y tmux
+        apt-get install -y tmux-next
 
         # clone tmux plugin manager:
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

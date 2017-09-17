@@ -30,7 +30,7 @@ alias o='xdg-open'
 # -----------------------------------------------------------------------------
 alias tls='command tmux ls'
 alias td='command tmux detach'
-alias tmux='command tmux -2 new-session -A -s `basename $PWD`'
+alias tmux='command tmux-next -2 new-session -A -s `basename $PWD`'
 alias ta='command tmux attach -t $1'
 # Allow tab completion with tmux attach alias:
 if [ -f /etc/bash_completion.d/ta ]; then
