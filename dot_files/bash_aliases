@@ -70,8 +70,10 @@ alias gpap='git pull --all --prune'
 __git_complete gpap _git_pull
 
 # Call gti pull on the ~/.vim directory to ensure I'm always up to date:
-echo "Updating ~/.vim directory..."
-cd ~/.vim && gpap && cd ~
+if [ $(pgrep -c bash) -le 2 ]; then
+  echo "Updating ~/.vim directory..."
+  cd ~/.vim >/dev/null && gpap && cd ~ >/dev/null
+fi
 
 # Set up commands for efficient directory navigation using directory stacks:
 
