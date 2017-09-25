@@ -69,6 +69,10 @@ __git_complete gpp _git_pull
 alias gpap='git pull --all --prune'
 __git_complete gpap _git_pull
 
+# Call gti pull on the ~/.vim directory to ensure I'm always up to date:
+echo "Updating ~/.vim directory..."
+cd ~/.vim && gpap && cd ~
+
 # Set up commands for efficient directory navigation using directory stacks:
 
 # display directory stack in a nice numbered list:
