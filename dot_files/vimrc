@@ -426,6 +426,9 @@ nnoremap <leader>c :set noic<CR>
 nmap <leader>j gj
 nmap <leader>k gk
 
+" use leader key to enable and disable line wrapping:
+nnoremap <leader>r :set wrap!<CR>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
