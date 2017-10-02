@@ -267,3 +267,7 @@ alias docker-clean='docker-stop-all-containers; docker-rm-all-containers; docker
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
 export PROMPT_COMMAND='history -a'
+
+# set default editor to vim:
+export VISUAL=vim
+export EDITOR="$VISUAL"
