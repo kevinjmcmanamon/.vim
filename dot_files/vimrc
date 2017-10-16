@@ -429,6 +429,9 @@ nmap <leader>k gk
 " use leader key to enable and disable line wrapping:
 nnoremap <leader>r :set wrap!<CR>
 
+" use leader key to toggle line numbers:
+nnoremap <leader>n :set rnu!<CR> :set number!<CR>
+
 " -----------------------------------------------------------------------------
 " CTRL-P
 " -----------------------------------------------------------------------------
