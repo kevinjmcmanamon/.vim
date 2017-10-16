@@ -11,6 +11,7 @@ exclude_options="--exclude=*.swp \
 # exclude certain directories by default:
 exclude_dir_options="--exclude-dir=build \
   --exclude-dir=release \
+  --exclude-dir=artifacts \
   --exclude-dir=devel \
   --exclude-dir=.svn \
   --exclude-dir=.git \
