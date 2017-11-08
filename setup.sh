@@ -75,6 +75,8 @@ fi
 if [ "$SW" = "true" ]; then
     echo "Installing necessary software..."
 
+    apt-get update
+
     # check if tmux installed.  If not, install it.
     if hash tmux 2>/dev/null; then
         echo "tmux already installed."
@@ -99,8 +101,23 @@ if [ "$SW" = "true" ]; then
         echo "vim already installed."
     else
         echo "vim not installed. Installing..."
-        apt-get update
         apt-get install -y vim vim-gtk
+    fi
+
+    # check if ack installed.  If not, install it.
+    if hash ack 2>/dev/null; then
+        echo "ack already installed."
+    else
+        echo "ack not installed. Installing..."
+        apt-get install -y ack-grep
+    fi
+
+    # check if silver searcher installed.  If not, install it.
+    if hash ag 2>/dev/null; then
+        echo "ag already installed."
+    else
+        echo "ag not installed. Installing..."
+        apt-get install -y silversearcher-ag
     fi
 
     # check if xsel installed.  If not, install it.
@@ -108,7 +125,6 @@ if [ "$SW" = "true" ]; then
         echo "xsel already installed."
     else
         echo "xsel not installed. Installing..."
-        apt-get update
         apt-get install -y xsel
     fi
 
@@ -117,7 +133,6 @@ if [ "$SW" = "true" ]; then
         echo "python already installed."
     else
         echo "python not installed. Installing..."
-        apt-get update
         apt-get install -y python-dev libxml2-dev libxslt-dev
         apt-get install -y python
     fi
@@ -127,7 +142,6 @@ if [ "$SW" = "true" ]; then
         echo "cmake already installed."
     else
         echo "cmake not installed. Installing..."
-        apt-get update
         apt-get install -y cmake
     fi
 
@@ -136,7 +150,6 @@ if [ "$SW" = "true" ]; then
         echo "g++ already installed."
     else
         echo "g++ not installed. Installing..."
-        apt-get update
         apt-get install -y g++
     fi
 
@@ -145,7 +158,6 @@ if [ "$SW" = "true" ]; then
         echo "xz already installed."
     else
         echo "xz not installed. Installing..."
-        apt-get update
         apt-get install -y xz-utils
     fi
 
@@ -154,7 +166,6 @@ if [ "$SW" = "true" ]; then
         echo "ctags already installed."
     else
         echo "ctags not installed. Installing..."
-        apt-get update
         apt-get install -y exuberant-ctags
     fi
 
@@ -163,7 +174,6 @@ if [ "$SW" = "true" ]; then
         echo "ranger already installed."
     else
         echo "ranger not installed. Installing..."
-        apt-get update
         apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
     fi
 
@@ -172,7 +182,6 @@ if [ "$SW" = "true" ]; then
         echo "catdoc already installed."
     else
         echo "catdoc not installed. Installing..."
-        apt-get update
         apt-get install -y catdoc
     fi
 
@@ -181,7 +190,6 @@ if [ "$SW" = "true" ]; then
         echo "docx2txt already installed."
     else
         echo "docx2txt not installed. Installing..."
-        apt-get update
         apt-get install -y docx2txt
     fi
 
@@ -190,7 +198,6 @@ if [ "$SW" = "true" ]; then
         echo "mutt already installed."
     else
         echo "mutt not installed. Installing..."
-        # apt-get update
         # apt-get install -y mutt
 
         # # create necessary directories
