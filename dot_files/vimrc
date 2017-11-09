@@ -41,14 +41,6 @@
 " To playback your keystrokes, press @ followed by the letter previously
 " chosen. Typing @@ repeats the last playback.
 "
-" GREP SEARCH:
-" Example grep search:
-" :grep! -Ri --include=*.{cpp,h,txt} "velocity.linear" .
-" Then call :copen (or F5 using the shortcut defined below) to view results in
-" the quickfix view
-" [Note that the exclamation mark after 'grep' (i.e. :grep!) means that the
-" first match found will NOT be automatically opened in a buffer]
-"
 " COMMENTS:
 " gcc comments the current line
 " gc<motion> comments the motion
@@ -322,8 +314,8 @@ imap kj <Esc>
 cmap jk <C-c>
 cmap kj <C-c>
 
-" set default grep options:
-set grepprg=~/.my_grep\ -nH\
+" Use ag over grep
+set grepprg=ag\ --nogroup\ --nocolor
 
 " By default, when calling grep, use shebang to stop vim opening file
 " automatically.
@@ -367,6 +359,10 @@ map <silent> <F9> :TagbarToggle<CR>
 " shortcut F10 for toggling paste and nopaste:
 set pastetoggle=<F10>
 
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+
 " -----------------------------------------------------------------------------
 " LEADER KEY USES
 " -----------------------------------------------------------------------------
@@ -407,7 +403,7 @@ nnoremap <leader>wl <C-W>5>
 
 " set shortcut to search for the word currently under the cursor in the
 " current working directory:
-nnoremap <leader>s :execute 'grep! -Ri <cword>' fnameescape(getcwd())<CR>
+nnoremap <leader>s :execute 'grep! <cword>' fnameescape(getcwd())<CR>
 
 " add shortcut to reload vimrc without restarting vim:
 nnoremap <leader><s-v> :so ~/.vimrc<CR>
@@ -446,6 +442,12 @@ set wildignore+=*/devel/*,*/build/*,*/.git/*,*.so
 "     instead of from the directory of the current file (default). Only applies
 "     when "r" is also present.
 let g:ctrlp_working_path_mode = 'rw'
+
+" Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" ag is fast enough that CtrlP doesn't need to cache
+let g:ctrlp_use_caching = 0
 
 " -----------------------------------------------------------------------------
 " TAGBAR
@@ -644,3 +646,4 @@ let g:vimwiki_list = [wiki_1]
 " set column width to be 42 for vimwiki files (to suit mobile viewing)
 autocmd FileType vimwiki setlocal colorcolumn=42
 autocmd FileType vimwiki setlocal tw=42
+
