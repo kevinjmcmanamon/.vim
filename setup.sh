@@ -8,18 +8,21 @@ then
     echo "  --links : Set sym links only"
     echo "  --sw : Install software only"
     echo "  --vim : Install vim plugins only"
+    echo "  --update : Update tmux plugins, vim plugins, and recompile YouCompleteMe"
     exit 1
 fi
 
 LINKS="false"
 SW="false"
 VIM="false"
+UPDATE="false"
 
 if  [[ $1 = "--all" ]]; then
     echo "Option --all turned on"
     LINKS="true"
     SW="true"
     VIM="true"
+    UPDATE="false" #don't update - we just installed
 else
     echo "Option --all not used"
 fi
@@ -43,6 +46,13 @@ if  [[ $1 = "--vim" ]]; then
     VIM="true"
 else
     echo "Option --vim not used"
+fi
+
+if  [[ $1 = "--update" ]]; then
+    echo "Option --update turned on"
+    UPDATE="true"
+else
+    echo "Option --update not used"
 fi
 
 # Get path to current script
@@ -204,6 +214,20 @@ if [ "$VIM" = "true" ]; then
     echo "Installing YouCompleteMe..."
     cd "$DIR"/bundle/YouCompleteMe
     ./install.py --clang-completer
+fi
+
+if [ "$UPDATE" = "true" ]; then
+    # update all vim plugins
+    echo "Updating vim plugins..."
+    echo '\n' | vim +PluginUpdate +qall
+
+    # recompile you complete me:
+    echo "Recompiling YouCompleteMe..."
+    cd "$DIR"/bundle/YouCompleteMe
+    ./install.py --clang-completer
+
+    # install plugins:
+    ~/.tmux/plugins/tpm/bin/install_plugins
 fi
 
 echo "Setup complete!"
