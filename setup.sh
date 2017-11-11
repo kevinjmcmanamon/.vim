@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ $# -eq 0 ]
 then
     echo "No arguments supplied."
@@ -75,26 +76,19 @@ fi
 if [ "$SW" = "true" ]; then
     echo "Installing necessary software..."
 
+    # install saved packages:
+    dpkg -i packages/*.deb
+
+    # clone tmux plugin manager:
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+    # install plugins:
+    ~/.tmux/plugins/tpm/bin/install_plugins
+
+    # set path to install fpp:
+    ln -s ~/.vim/PathPicker/fpp /usr/local/bin/fpp
+
     apt-get update
-
-    # check if tmux installed.  If not, install it.
-    if hash tmux 2>/dev/null; then
-        echo "tmux already installed."
-    else
-        echo "tmux not installed. Installing..."
-        add-apt-repository -y ppa:pi-rho/dev
-        apt-get update
-        apt-get install -y tmux-next
-
-        # set sym link for tmux to tmux-next
-        ln -s /usr/bin/tmux-next /usr/bin/tmux
-
-        # clone tmux plugin manager:
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-        # install plugins:
-        ~/.tmux/plugins/tpm/bin/install_plugins
-    fi
 
     # check if vim installed.  If not, install it.
     if hash vim 2>/dev/null; then
@@ -102,22 +96,6 @@ if [ "$SW" = "true" ]; then
     else
         echo "vim not installed. Installing..."
         apt-get install -y vim vim-gtk
-    fi
-
-    # check if ack installed.  If not, install it.
-    if hash ack 2>/dev/null; then
-        echo "ack already installed."
-    else
-        echo "ack not installed. Installing..."
-        apt-get install -y ack-grep
-    fi
-
-    # check if silver searcher installed.  If not, install it.
-    if hash ag 2>/dev/null; then
-        echo "ag already installed."
-    else
-        echo "ag not installed. Installing..."
-        apt-get install -y silversearcher-ag
     fi
 
     # check if xsel installed.  If not, install it.
