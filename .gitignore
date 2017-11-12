@@ -1,0 +1,5 @@
+bundle/*
+dot_files/tmux/*
+the_silver_searcher/
+PathPicker/
+tmux

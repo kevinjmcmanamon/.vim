@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 
 if [ $# -eq 0 ]
 then
@@ -62,50 +63,38 @@ if [ "$LINKS" = "true" ]; then
     echo "Setting up sym links..."
 
     # Create sym links to config files:
-    ln -s "$DIR"/dot_files/my_grep ~/.my_grep
-    ln -s "$DIR"/dot_files/bash_aliases ~/.bash_aliases
-    ln -s "$DIR"/dot_files/gitignore ~/.gitignore
-    ln -s "$DIR"/dot_files/gitconfig ~/.gitconfig
-    ln -s "$DIR"/dot_files/tmux.conf ~/.tmux.conf
-    ln -s "$DIR"/dot_files/vimrc ~/.vimrc
-    ln -s "$DIR"/dot_files/vimperatorrc ~/.vimperatorrc
-    ln -s "$DIR"/dot_files/inputrc ~/.inputrc
-    ln -s "$DIR"/dot_files/dircolors ~/.dircolors
-    ln -s "$DIR"/dot_files/ta /etc/bash_completion.d/ta
-    mkdir ~/.mutt
-    ln -s "$DIR"/dot_files/muttrc ~/.mutt/muttrc
+    ln -sf "$DIR"/dot_files/my_grep ~/.my_grep
+    ln -sf "$DIR"/dot_files/bash_aliases ~/.bash_aliases
+    ln -sf "$DIR"/dot_files/gitignore ~/.gitignore
+    ln -sf "$DIR"/dot_files/gitconfig ~/.gitconfig
+    ln -sf "$DIR"/dot_files/tmux.conf ~/.tmux.conf
+    ln -sf "$DIR"/dot_files/vimrc ~/.vimrc
+    # ln -sf "$DIR"/dot_files/vimperatorrc ~/.vimperatorrc
+    ln -sf "$DIR"/dot_files/inputrc ~/.inputrc
+    ln -sf "$DIR"/dot_files/dircolors ~/.dircolors
+    sudo ln -sf "$DIR"/dot_files/ta /etc/bash_completion.d/ta
+    # mkdir ~/.mutt
+    # ln -sf "$DIR"/dot_files/muttrc ~/.mutt/muttrc
 
     # create workspace dir (if it doesn't already exist)
     # mkdir ~/workspace
-    # ln -s "$DIR"/dot_files/ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
+    # ln -sf "$DIR"/dot_files/ycm_extra_conf.py ~/workspace/.ycm_extra_conf.py
 
     # create link to dropbox vimwiki directory from default vimwiki location:
-    ln -s ~/Dropbox/_vimwiki ~/vimwiki
+    ln -sf ~/Dropbox/_vimwiki ~/vimwiki
 fi
 
 if [ "$SW" = "true" ]; then
     echo "Installing necessary software..."
 
-    # install saved packages:
-    dpkg -i packages/*.deb
-
-    # clone tmux plugin manager:
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-    # install plugins:
-    ~/.tmux/plugins/tpm/bin/install_plugins
-
-    # set path to install fpp:
-    ln -s ~/.vim/PathPicker/fpp /usr/local/bin/fpp
-
-    apt-get update
+    sudo apt-get update
 
     # check if vim installed.  If not, install it.
     if hash vim 2>/dev/null; then
         echo "vim already installed."
     else
         echo "vim not installed. Installing..."
-        apt-get install -y vim vim-gtk
+        sudo apt-get install -y vim vim-gtk
     fi
 
     # check if xsel installed.  If not, install it.
@@ -113,7 +102,7 @@ if [ "$SW" = "true" ]; then
         echo "xsel already installed."
     else
         echo "xsel not installed. Installing..."
-        apt-get install -y xsel
+        sudo apt-get install -y xsel
     fi
 
     # check if python installed.  If not, install it.
@@ -121,8 +110,8 @@ if [ "$SW" = "true" ]; then
         echo "python already installed."
     else
         echo "python not installed. Installing..."
-        apt-get install -y python-dev libxml2-dev libxslt-dev
-        apt-get install -y python
+        sudo apt-get install -y python-dev libxml2-dev libxslt-dev
+        sudo apt-get install -y python
     fi
 
     # check if cmake installed.  If not, install it.
@@ -130,7 +119,7 @@ if [ "$SW" = "true" ]; then
         echo "cmake already installed."
     else
         echo "cmake not installed. Installing..."
-        apt-get install -y cmake
+        sudo apt-get install -y cmake
     fi
 
     # check if g++ installed.  If not, install it.
@@ -138,7 +127,7 @@ if [ "$SW" = "true" ]; then
         echo "g++ already installed."
     else
         echo "g++ not installed. Installing..."
-        apt-get install -y g++
+        sudo apt-get install -y g++
     fi
 
     # check if xz installed.  If not, install it.
@@ -146,7 +135,7 @@ if [ "$SW" = "true" ]; then
         echo "xz already installed."
     else
         echo "xz not installed. Installing..."
-        apt-get install -y xz-utils
+        sudo apt-get install -y xz-utils
     fi
 
     # check if ctags installed.  If not, install it.
@@ -154,7 +143,7 @@ if [ "$SW" = "true" ]; then
         echo "ctags already installed."
     else
         echo "ctags not installed. Installing..."
-        apt-get install -y exuberant-ctags
+        sudo apt-get install -y exuberant-ctags
     fi
 
     # check if ranger installed.  If not, install it.
@@ -162,7 +151,7 @@ if [ "$SW" = "true" ]; then
         echo "ranger already installed."
     else
         echo "ranger not installed. Installing..."
-        apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
+        sudo apt-get install -y ranger caca-utils highlight atool w3m poppler-utils mediainfo
     fi
 
     # check if catdoc installed.  If not, install it.
@@ -170,7 +159,7 @@ if [ "$SW" = "true" ]; then
         echo "catdoc already installed."
     else
         echo "catdoc not installed. Installing..."
-        apt-get install -y catdoc
+        sudo apt-get install -y catdoc
     fi
 
     # check if docx2txt installed.  If not, install it.
@@ -178,7 +167,7 @@ if [ "$SW" = "true" ]; then
         echo "docx2txt already installed."
     else
         echo "docx2txt not installed. Installing..."
-        apt-get install -y docx2txt
+        sudo apt-get install -y docx2txt
     fi
 
     # check if mutt installed.  If not, install it.
@@ -193,6 +182,46 @@ if [ "$SW" = "true" ]; then
         # mkdir ~/.mutt/cache/bodies
         # touch ~/.mutt/certificates
     fi
+
+    # clone and install tmux:
+    echo "Installing tmux..."
+    if [ ! -d "$DIR"/tmux ]; then
+        git clone https://github.com/tmux/tmux
+    fi
+    cd tmux
+    git checkout 2.6
+    sudo apt-get install -y libevent-dev libncurses5-dev
+    sh autogen.sh
+    ./configure && make
+    sudo make install
+    cd ..
+
+    # clone tmux plugin manager:
+    echo "Installing tmux plugins..."
+    if [ ! -d ~/.tmux/plugins/tpm ]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+    # install plugins:
+    ~/.tmux/plugins/tpm/bin/install_plugins
+
+    # clone facebook path picker:
+    echo "Installing facebook pathpicker..."
+    if [ ! -d "$DIR"/PathPicker ]; then
+        git clone https://github.com/facebook/PathPicker.git
+    fi
+    # set path to install fpp:
+    sudo ln -sf "$DIR"/PathPicker/fpp /usr/local/bin/fpp
+
+    # clone silver searcher:
+    echo "Installing silver searcher..."
+    if [ ! -d "$DIR"/the_silver_searcher ]; then
+        git clone https://github.com/ggreer/the_silver_searcher.git
+    fi
+    sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
+    cd the_silver_searcher
+    ./build.sh
+    sudo ln -sf "$DIR"/the_silver_searcher/ag /usr/local/bin/ag
+    cd ..
 fi
 
 if [ "$VIM" = "true" ]; then
@@ -209,6 +238,7 @@ if [ "$VIM" = "true" ]; then
     # Now install all vim plugins
     echo "Installing vim plugins..."
     echo '\n' | vim +PluginInstall +qall
+    echo '\n' | vim +PluginUpdate +qall
 
     # Install you complete me:
     echo "Installing YouCompleteMe..."
@@ -219,6 +249,7 @@ fi
 if [ "$UPDATE" = "true" ]; then
     # update all vim plugins
     echo "Updating vim plugins..."
+    echo '\n' | vim +PluginInstall +qall
     echo '\n' | vim +PluginUpdate +qall
 
     # recompile you complete me:
