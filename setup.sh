@@ -190,7 +190,7 @@ if [ "$SW" = "true" ]; then
     fi
     cd tmux
     git checkout 2.6
-    sudo apt-get install -y libevent-dev libncurses5-dev autotools-dev automake
+    sudo apt-get install -y libevent-dev libncurses5-dev autotools-dev automake pkg-config
     sh autogen.sh
     ./configure && make
     sudo make install

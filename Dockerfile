@@ -7,10 +7,12 @@ RUN apt-get update && \
     software-properties-common \
     python-software-properties \
     git \
+    sudo \
+    pkg-config \
     python-dev
 
 RUN git clone https://github.com/kevinjmcmanamon/.vim
-RUN .vim/setup.sh --all
-RUN echo "set encoding=utf-8" >> .vimrc
+RUN cd .vim && ./setup.sh --all
+RUN echo "set encoding=utf-8" >> ~/.vimrc
 
 CMD bash
