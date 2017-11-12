@@ -87,7 +87,7 @@ fi
 if [ "$SW" = "true" ]; then
     echo "Installing necessary software..."
 
-    sudo apt-get update
+    # sudo apt-get update
 
     # check if vim installed.  If not, install it.
     if hash vim 2>/dev/null; then
@@ -190,7 +190,7 @@ if [ "$SW" = "true" ]; then
     fi
     cd tmux
     git checkout 2.6
-    sudo apt-get install -y libevent-dev libncurses5-dev
+    sudo apt-get install -y libevent-dev libncurses5-dev autotools-dev automake
     sh autogen.sh
     ./configure && make
     sudo make install
