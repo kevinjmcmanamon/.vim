@@ -387,10 +387,6 @@ nnoremap <leader><s-o> <s-o><ESC>
 " Add shortcut "<leader>-p" to change the current word with the current yanked text
 :map <leader>p "_cw<C-r>"<ESC>
 
-" remap keys to easily switch between buffers
-nnoremap <silent> <leader>h :bp<CR>
-nnoremap <silent> <leader>l :bn<CR>
-
 " map leader-h and leader-l to move to previous older and newer quickfix views.
 autocmd BufReadPost quickfix nnoremap <buffer> <leader>h :col<CR>
 autocmd BufReadPost quickfix nnoremap <buffer> <leader>l :cnew<CR>
@@ -430,6 +426,11 @@ nnoremap <leader>r :set wrap!<CR>
 
 " use leader key to toggle line numbers:
 nnoremap <leader>n :set rnu!<CR> :set number!<CR>
+
+" remap keys to easily switch between buffers (used to use leader key, but
+" didn't allow holding down leader key at same time)
+nnoremap <silent> <C-h> :bp<CR>
+nnoremap <silent> <C-l> :bn<CR>
 
 " -----------------------------------------------------------------------------
 " CTRL-P
