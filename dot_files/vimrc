@@ -168,6 +168,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
+Plugin 'mbbill/undotree'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
@@ -648,3 +649,14 @@ let g:vimwiki_list = [wiki_1]
 autocmd FileType vimwiki setlocal colorcolumn=42
 autocmd FileType vimwiki setlocal tw=42
 
+" -----------------------------------------------------------------------------
+" UNDOTREE
+" -----------------------------------------------------------------------------
+
+" Map F12 to undotree toggle:
+nnoremap <F12> :UndotreeToggle<cr>
+
+if has("persistent_undo")
+  set undodir=~/.vim/
+  set undofile
+endif
