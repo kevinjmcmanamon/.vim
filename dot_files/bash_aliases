@@ -148,6 +148,9 @@ cd_custom()
 
    # print current directory stack
    dirs
+
+   # print contents of current directory:
+   ls -l
 }
 
 pushd_builtin()
