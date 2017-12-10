@@ -147,10 +147,12 @@ cd_custom()
    fi
 
    # print current directory stack
+   echo "Directory stack:"
    dirs
+   echo ""
 
    # print contents of current directory:
-   ls -l
+   ls -lh
 }
 
 pushd_builtin()
