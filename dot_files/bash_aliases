@@ -73,11 +73,37 @@ __git_complete gpp _git_pull
 alias gpap='git pull --all --prune'
 __git_complete gpap _git_pull
 
-# Call gti pull on the ~/.vim directory to ensure I'm always up to date:
+# Call git pull on the ~/.vim directory to ensure I'm always up to date:
+# Only done if there is only one bash shell running (so that it doesn't run
+# every time I open a new shell):
 if [ $(pgrep -c bash) -le 2 ]; then
   echo "Updating ~/.vim directory..."
   cd ~/.vim >/dev/null && gpap && cd ~ >/dev/null
+
+  # clone or pull bash-git-prompt:
+  git -C ~/.bash-git-prompt pull || \
+    git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
 fi
+
+# Set PS1 to make prompt look like cygwin
+RED="$(tput setaf 1)"
+GREEN="$(tput setaf 2)"
+YELLOW="$(tput setaf 3)"
+RESET="$(tput sgr0)"
+# Using bash-git-prompt to set PS1 prompt, rather than setting PS1 directly:
+# PS1='${RED}\t ${GREEN}\u@\h: ${YELLOW}\w ${RESET}\n\$ '
+
+# source script to set nice prompt for git (need to remove my cd alias which
+# apparently was causing issues):
+unalias cd 2>/dev/null
+# GIT_PROMPT_ONLY_IN_REPO=1
+# GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+# GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
+# GIT_PROMPT_SHOW_UNTRACKED_FILES=all # can be no, normal or all; determines counting of untracked files
+# GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0 # uncomment to avoid printing the number of changed files
+GIT_PROMPT_START='_LAST_COMMAND_INDICATOR_ ${RED}\t ${GREEN}\u@\h: ${YELLOW}\w ${RESET}'
+GIT_PROMPT_END='\n\$ '
+. ~/.bash-git-prompt/gitprompt.sh
 
 # Set up commands for efficient directory navigation using directory stacks:
 
@@ -106,7 +132,7 @@ pushd_custom()
 {
    # check if dir is different to current dir (if not, do nothing):
    if ! [[ "$1" -ef $PWD ]]; then
-      pushd "$1" > /dev/null
+      pushd "$1" > /dev/null || return 1
       # remove duplicate dirs from directory stack:
       rm_duplicate_dirs
    fi
@@ -119,16 +145,16 @@ cd_custom()
 
    # If no argument given, return to home dir (like default cd behaviour)
    if [ $# -eq 0 ] ; then
-      pushd_custom "${HOME}"
+      pushd_custom "${HOME}" || return 1
    # If argument is a number:
    elif [[ $1 =~ $re ]] ; then
       # If argument is a number, but also a directory, then cd into it:
       if [ -d "$1" ]; then
-         pushd_custom "$1"
+         pushd_custom "$1" || return 1
       # otherwise, cd to the directory on the stack by its number:
       else
          # add current dir to stack (otherwise, current dir is lost from the stack):
-         pushd . > /dev/null
+         pushd . > /dev/null || return 1
          # increment arg by one to take into account dir just added
          index=$(($1+1))
          # formulate command to jump to directory on stack
@@ -140,10 +166,10 @@ cd_custom()
       fi
    # if "-" passed, just call pushd to stop new dirs being added to the stack
    elif [[ $1 = "-" ]] ; then
-      pushd > /dev/null
+      pushd > /dev/null || return 1
    # argument given, not a number, not a dash:
    else
-      pushd_custom "$1"
+      pushd_custom "$1" || return 1
    fi
 
    # print current directory stack
@@ -238,13 +264,6 @@ alias lock='gnome-screensaver-command -l'
 # disable XON/XOFF so that ctrl-S works for forward bash history searching
 stty -ixon
 
-# Set PS1 to make prompt look like cygwin
-RED="$(tput setaf 1)"
-GREEN="$(tput setaf 2)"
-YELLOW="$(tput setaf 3)"
-RESET="$(tput sgr0)"
-PS1='${RED}\t ${GREEN}\u@\h: ${YELLOW}\w ${RESET}$(__git_ps1 "(%s)")\n\$ '
-
 # Useful alias for FDECO project to run ROS commands:
 alias d='docker run --rm --net fdeco -e ROS_MASTER_URI=http://master:11311 fdeco-solar'
 
@@ -277,7 +296,13 @@ alias docker-clean='docker-stop-all-containers; docker-rm-all-containers; docker
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
-export PROMPT_COMMAND='history -a'
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # set default editor to vim:
 export VISUAL=vim
