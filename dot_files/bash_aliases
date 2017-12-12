@@ -82,12 +82,20 @@ if [ $(pgrep -c bash) -le 2 ]; then
 
   # clone or pull bash-git-prompt:
   git -C ~/.bash-git-prompt pull || \
-    git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 fi
 
+# Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
+# ~/.bash_history automatically.  This means I can have access to all commands
+# I have run from all terminals.
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+shopt -s histappend                      # append to history, don't overwrite it
+
 # Save and reload the history after each command finishes
-# NOTE: needs to be set before bash-git-prompt config (which also alters the
-# value of PROMPT_COMMAND)
+# NOTE: needs to be set before sourcing of bash-git-prompt config (which also
+# alters the value of PROMPT_COMMAND)
 export PROMPT_COMMAND="history -a; history -c; history -r"
 
 # Set PS1 to make prompt look like cygwin
@@ -297,14 +305,6 @@ alias docker-dropbox-status='docker exec -it dropbox watch -n0.1 dropbox status'
 
 # Alias to do full clean
 alias docker-clean='docker-stop-all-containers; docker-rm-all-containers; docker-rm-dangling-images; docker-rm-dangling-volumes'
-
-# Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
-# ~/.bash_history automatically.  This means I can have access to all commands
-# I have run from all terminals.
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-export HISTSIZE=100000                   # big big history
-export HISTFILESIZE=100000               # big big history
-shopt -s histappend                      # append to history, don't overwrite it
 
 # set default editor to vim:
 export VISUAL=vim
