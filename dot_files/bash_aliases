@@ -263,7 +263,7 @@ alias docker-stop-all-containers='docker stop $(docker ps -a | grep -v dropbox |
 # Alias to launch my dropbox running in a docker container (for running dropbox
 # at work)
 alias docker-dropbox='docker run -d --restart=always --name=dropbox \
-  -v ~/dropbox:/dbox/Dropbox/ \
+  -v ~/Dropbox:/dbox/Dropbox/ \
   -e DBOX_UID=`id -u $USER` \
   -e DBOX_GID=`id -g $USER` \
   janeczku/dropbox'
