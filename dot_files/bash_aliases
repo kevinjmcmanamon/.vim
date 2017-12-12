@@ -85,6 +85,11 @@ if [ $(pgrep -c bash) -le 2 ]; then
     git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
 fi
 
+# Save and reload the history after each command finishes
+# NOTE: needs to be set before bash-git-prompt config (which also alters the
+# value of PROMPT_COMMAND)
+export PROMPT_COMMAND="history -a; history -c; history -r"
+
 # Set PS1 to make prompt look like cygwin
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"
@@ -101,7 +106,7 @@ GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
 # GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
 # GIT_PROMPT_SHOW_UNTRACKED_FILES=all # can be no, normal or all; determines counting of untracked files
 # GIT_PROMPT_SHOW_CHANGED_FILES_COUNT=0 # uncomment to avoid printing the number of changed files
-GIT_PROMPT_START='${RED}\t ${GREEN}\u@\h: ${YELLOW}\w ${RESET}'
+GIT_PROMPT_START='_LAST_COMMAND_INDICATOR_ ${RED}\t ${GREEN}\u@\h: ${YELLOW}\w ${RESET}'
 GIT_PROMPT_END='\n\$ '
 . ~/.bash-git-prompt/gitprompt.sh
 
@@ -300,9 +305,6 @@ export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
-
-# Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # set default editor to vim:
 export VISUAL=vim
