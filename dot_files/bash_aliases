@@ -96,7 +96,10 @@ shopt -s histappend                      # append to history, don't overwrite it
 # Save and reload the history after each command finishes
 # NOTE: needs to be set before sourcing of bash-git-prompt config (which also
 # alters the value of PROMPT_COMMAND)
-export PROMPT_COMMAND="history -a; history -c; history -r"
+# DISABLED AS IT IS NOT REALLY NICE TO WORK WITH - PRESSING UP ARROW DOESN'T
+# TAKE YOU TO LAST COMMAND RUN IN THAT TERMINAL:
+#
+# export PROMPT_COMMAND="history -a; history -c; history -r"
 
 # Set PS1 to make prompt look like cygwin
 RED="$(tput setaf 1)"
