@@ -657,6 +657,6 @@ autocmd FileType vimwiki setlocal tw=42
 nnoremap <F12> :UndotreeToggle<cr>
 
 if has("persistent_undo")
-  set undodir=~/.vim/
+  set undodir=~/.vim/undotree/
   set undofile
 endif
