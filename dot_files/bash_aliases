@@ -57,7 +57,7 @@ __git_complete gc _git_commit
 alias gd='git diff'
 __git_complete gd _git_diff
 alias gvd='git difftool'
-__git_complete gd _git_diff
+__git_complete gvd _git_diff
 alias go='git checkout'
 __git_complete go _git_checkout
 alias gl='git lg'
