@@ -220,7 +220,7 @@ if [ "$SW" = "true" ]; then
     sudo apt-get install -y automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
     cd the_silver_searcher
     ./build.sh
-    sudo ln -sf "$DIR"/the_silver_searcher/ag /usr/local/bin/ag
+    sudo make install
     cd ..
 fi
 
