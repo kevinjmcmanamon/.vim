@@ -14,15 +14,15 @@ alias grepn='~/.my_grep -n'
 # to bulk delete lots of files if sure
 function safe_rm() {
   if [[ $@ = *-f* ]]; then
-    echo "-f option included"
+    echo "Do not use -f option. Call again without -f."
+    return
   fi
 
   if [[ $@ = *-rf* ]]; then
-    echo "-rf option included"
+    echo "Do not use -f option. Call again without -f."
+    return
   fi
 
-  echo here
-  echo $@
   /bin/rm -i $@
 }
 
