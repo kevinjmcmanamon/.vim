@@ -3,6 +3,38 @@ alias grep='~/.my_grep'
 # needed to add this separately as tab complete with 'make' was not working otherwise:
 alias grepn='~/.my_grep -n'
 
+# create alias for rm so that it checks first before deleting (I have too often
+# deleted important stuff by mistake by calling the rm command in error).
+# Uses -i option for 'interactive' remove
+# Can use :
+#     yes no | rm /list/of/files
+# to preview deletions
+# Otherwise can use:
+#     yes yes | rm /list/of/files
+# to bulk delete lots of files if sure
+function safe_rm() {
+  if [[ $@ = *-f* ]]; then
+    echo "-f option included"
+  fi
+
+  if [[ $@ = *-rf* ]]; then
+    echo "-rf option included"
+  fi
+
+  echo here
+  echo $@
+  /bin/rm -i $@
+}
+
+alias rm=' safe_rm'
+
+# Furthermore, I don't want any rm commands going into my bash history (the
+# reason I've previous deleted stuff by mistake was by using the arrow keys to
+# use a previous command, and hitting enter before realising that I was on an
+# 'rm' command)
+# Can use HISTCONTROL env variable to stop any commands that begin with a space from entering the history.
+export HISTCONTROL=$HISTCONTROL:ignorespace
+
 # Useful function for grepping through MS Word documents:
 function grepdoc() {
 
@@ -90,7 +122,7 @@ fi
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
 # ~/.bash_history automatically.  This means I can have access to all commands
 # I have run from all terminals.
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTCONTROL=$HISTCONTROL:ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
