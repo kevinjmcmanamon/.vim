@@ -24,7 +24,7 @@ export HISTIGNORE="$HISTIGNORE:&:rm *:sudo rm *:/bin/rm *"
 function safe_rm() {
 
   # Double check with user if force option '-f' is used.
-  if [[ $@ = *-f* ]] || [[ $@ = *-rf* ]]; then
+  if [[ $@ =~ -[a-zA-Z]*f ]]; then
 
     # Also need to add patch for ROS here.  The ROS setup.sh script (called by
     # .bashrc) tries to delete some temp ROS file with 'rm -f', so check for
