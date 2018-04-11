@@ -1,38 +1,54 @@
 # define separate ~/.my_grep script so that grep inside vim can use it as well
 alias grep='~/.my_grep'
-# needed to add this separately as tab complete with 'make' was not working otherwise:
+# needed to add this separately as tab complete with 'make' was not working
+# otherwise:
 alias grepn='~/.my_grep -n'
 
-# create alias for rm so that it checks first before deleting (I have too often
-# deleted important stuff by mistake by calling the rm command in error).
-# Uses -i option for 'interactive' remove
-# Can use :
-#     yes no | rm /list/of/files
-# to preview deletions
-# Otherwise can use:
-#     yes yes | rm /list/of/files
-# to bulk delete lots of files if sure
-function safe_rm() {
-  if [[ $@ = *-f* ]]; then
-    echo "Do not use -f option. Call again without -f."
-    return
-  fi
+# I don't want any rm commands going into my bash history (the reason I've
+# previous deleted stuff by mistake was by using the arrow keys to use a
+# previous command, and hitting enter before realising that I was on an 'rm'
+# command). Therefore I remove all occurrences of 'rm' from the history file by
+# default.  remove all lines starting with 'rm' (including starting
+# whitespace):
+sed -i '/^ *\brm\b/d' $HISTFILE
+# remove all lines starting with 'sudo rm' (including starting whitespace):
+sed -i '/^ *\bsudo rm\b/d' $HISTFILE
+# remove all lines containing '/bin/rm'
+sed -i '\#/bin/rm#d' $HISTFILE
 
-  if [[ $@ = *-rf* ]]; then
-    echo "Do not use -f option. Call again without -f."
-    return
+# Furthermore, update the HISTIGNORE env variable to ignore all rm commands:
+export HISTIGNORE="$HISTIGNORE:&:rm *:sudo rm *:/bin/rm *"
+
+# create alias for rm so that the call to rm automatically used -i. Also
+# double-checks if force option is used.
+function safe_rm() {
+
+  # Double check with user if force option '-f' is used.
+  if [[ $@ = *-f* ]] || [[ $@ = *-rf* ]]; then
+
+    # Also need to add patch for ROS here.  The ROS setup.sh script (called by
+    # .bashrc) tries to delete some temp ROS file with 'rm -f', so check for
+    # that here:
+    if [[ $@ != *"-f /tmp/setup.sh"* ]]; then
+
+      read -p "You are trying to remove something using force '-f'. Are you sure? (y/N) " -r
+      echo # to add a new line
+      if [[ ! $REPLY =~ ^[Yy]$ ]] # If anything other than Y or y is entered
+      then
+        echo "Cancelling call to rm."
+        return
+      fi
+    fi
   fi
 
   /bin/rm -i $@
 }
 
-alias rm=' safe_rm'
+alias rm='safe_rm'
 
-# Furthermore, I don't want any rm commands going into my bash history (the
-# reason I've previous deleted stuff by mistake was by using the arrow keys to
-# use a previous command, and hitting enter before realising that I was on an
-# 'rm' command)
-# Can use HISTCONTROL env variable to stop any commands that begin with a space from entering the history.
+# Also, don't store anything to history that starts with a space. This can be
+# used for any other commands that I don't want to put into history - just
+# start the command with an empty space.
 export HISTCONTROL=$HISTCONTROL:ignorespace
 
 # Useful function for grepping through MS Word documents:
