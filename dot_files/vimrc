@@ -172,7 +172,7 @@ Plugin 'mbbill/undotree'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'kana/vim-operator-user'
 Plugin 'haya14busa/vim-operator-flashy'
-Plugin 'rhysd/vim-clang-format'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-smooth-scroll'
@@ -662,3 +662,15 @@ if has("persistent_undo")
   set undodir=~/.vim/undotree/
   set undofile
 endif
+
+" -----------------------------------------------------------------------------
+" VIM-AUTOFORMAT
+" -----------------------------------------------------------------------------
+" Disable auto fallback to normal vim formatting if formatter not found:
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+" Set path to allow vim-autoformat to find 'clang-format'
+let g:formatterpath = ['/usr/lib/llvm-3.6/bin']
+" Enable auto formatting when file saved:
+au BufWrite * :Autoformat

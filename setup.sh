@@ -114,6 +114,9 @@ if [ "$SW" = "true" ]; then
         sudo apt-get install -y python
     fi
 
+    # Install clang-format v3.6:
+    sudo apt-get install -y clang-format-3.6
+
     # check if cmake installed.  If not, install it.
     if hash cmake 2>/dev/null; then
         echo "cmake already installed."
