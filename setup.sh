@@ -87,7 +87,7 @@ fi
 if [ "$SW" = "true" ]; then
     echo "Installing necessary software..."
 
-    # sudo apt-get update
+    sudo apt-get update
 
     # check if vim installed.  If not, install it.
     if hash vim 2>/dev/null; then
