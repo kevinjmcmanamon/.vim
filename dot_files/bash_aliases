@@ -276,14 +276,8 @@ alias cdo='clear_dirs'
 
 # Set aliases for common directories that I want to cd in to:
 alias cd_ws='cd ~/workspace'
-alias cd_projects='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project'
-alias cd_neptune='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/NEPTUNE'
-alias cd_fdeco='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com/project/FDECO'
-alias cd_svngeneral='cd /media/kevin.mcmanamon/DATA/svn-general.seebyte.com'
-alias cd_data='cd /media/kevin.mcmanamon/DATA'
-alias cd_storage='cd /run/user/10110/gvfs/smb-share:server=storage,share=share'
-alias cd_kevin='cd /run/user/10110/gvfs/smb-share:server=storage,share=kevin.mcmanamon'
-alias cd_allhomes='cd /run/user/10110/gvfs/smb-share:server=storage,share=all-homes'
+alias cd_home='cd /mnt/c/Users/kmcmanamon'
+alias cd_desktop='cd /mnt/c/Users/kmcmanamon/Desktop'
 
 # nice shortcut to make navigating up directories more efficient:
 
