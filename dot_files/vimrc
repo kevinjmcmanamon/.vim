@@ -181,6 +181,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'osyo-manga/vim-over'
 Plugin 'vimwiki/vimwiki'
 Plugin 'Raimondi/delimitMate'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mattn/emmet-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -230,9 +232,9 @@ set rnu
 " set up TAB settings
 filetype plugin indent on
 " show existing tab with 2 spaces width
-set tabstop=2
+set tabstop=4
 " when indenting with '>', use 2 spaces width
-set shiftwidth=2
+set shiftwidth=4
 " On pressing tab, insert 2 spaces
 set expandtab
 
@@ -667,10 +669,10 @@ endif
 " VIM-AUTOFORMAT
 " -----------------------------------------------------------------------------
 " Disable auto fallback to normal vim formatting if formatter not found:
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+" let g:autoformat_autoindent = 0
+" let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
 " Set path to allow vim-autoformat to find 'clang-format'
-let g:formatterpath = ['/usr/lib/llvm-3.6/bin']
+" let g:formatterpath = ['/usr/lib/llvm-3.6/bin']
 " Enable auto formatting when file saved:
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
