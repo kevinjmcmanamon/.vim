@@ -1,0 +1,33 @@
+{
+    "terminal.integrated.shell.windows": "C:\\Users\\kmcmanamon\\AppData\\Local\\Microsoft\\WindowsApps\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\Ubuntu.exe",
+    "editor.lineNumbers": "relative",
+    "editor.formatOnSave": "true",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "workbench.colorTheme": "Visual Studio Dark",
+    "window.zoomLevel": 0,
+    // "vim.normalModeKeyBindingsNonRecursive": [
+    //     {
+    //         "before": [
+    //             ":"
+    //         ],
+    //         "commands": [
+    //             "workbench.action.showCommands",
+    //         ]
+    //     }
+    // ]
+}
