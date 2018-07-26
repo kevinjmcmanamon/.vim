@@ -1,23 +1,35 @@
 // Place your key bindings in this file to overwrite the defaults
 [
     {
-        "key": "ctrl+j",
+        "key": "ctrl+l",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.previousEditor"
+    }
+    {
+        "key": "ctrl+shift+j",
         "command": "workbench.action.navigateDown"
     },
     {
-        "key": "ctrl+k",
+        "key": "ctrl+shift+k",
         "command": "workbench.action.navigateUp"
-    }
+    },
     {
-        "key": "ctrl+h",
+        "key": "ctrl+shift+h",
         "command": "workbench.action.navigateLeft"
-    }
+    },
     {
-        "key": "ctrl+l",
+        "key": "ctrl+shift+l",
         "command": "workbench.action.navigateRight"
-    }
+    },
     {
         "key": "ctrl+shift+m",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+x",
+        "command": "workbench.action.closeActiveEditor"
     }
 ]
