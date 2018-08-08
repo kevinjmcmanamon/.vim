@@ -63,7 +63,7 @@
             "after": [
                 "o",
                 "<Esc>"
-                                    ],
+            ],
         },
         {
             "before": [
@@ -73,7 +73,7 @@
             "after": [
                 "O",
                 "<Esc>"
-                                    ],
+            ],
         },
         {
             "before": [
@@ -102,6 +102,24 @@
                 "d",
                 "w"
             ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "x"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "Y",
+            ],
+            "after": [
+                "y",
+                "$",
+            ]
         }
     ],
     "emmet.includeLanguages": {

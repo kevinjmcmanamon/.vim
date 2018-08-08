@@ -7,7 +7,7 @@
     {
         "key": "ctrl+h",
         "command": "workbench.action.previousEditor"
-    }
+    },
     {
         "key": "ctrl+shift+j",
         "command": "workbench.action.navigateDown"
@@ -28,8 +28,4 @@
         "key": "ctrl+shift+m",
         "command": "workbench.action.toggleMaximizedPanel"
     },
-    {
-        "key": "ctrl+x",
-        "command": "workbench.action.closeActiveEditor"
-    }
 ]
