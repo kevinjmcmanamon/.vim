@@ -244,9 +244,9 @@ if [ "$VIM" = "true" ]; then
     echo '\n' | vim +PluginUpdate +qall
 
     # Install you complete me:
-    echo "Installing YouCompleteMe..."
-    cd "$DIR"/bundle/YouCompleteMe
-    ./install.py --clang-completer
+    # echo "Installing YouCompleteMe..."
+    # cd "$DIR"/bundle/YouCompleteMe
+    # ./install.py --clang-completer
 fi
 
 if [ "$UPDATE" = "true" ]; then
@@ -256,9 +256,9 @@ if [ "$UPDATE" = "true" ]; then
     echo '\n' | vim +PluginUpdate +qall
 
     # recompile you complete me:
-    echo "Recompiling YouCompleteMe..."
-    cd "$DIR"/bundle/YouCompleteMe
-    ./install.py --clang-completer
+    # echo "Recompiling YouCompleteMe..."
+    # cd "$DIR"/bundle/YouCompleteMe
+    # ./install.py --clang-completer
 
     # install plugins:
     ~/.tmux/plugins/tpm/bin/install_plugins
