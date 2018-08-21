@@ -1,8 +1,8 @@
-#Mon Aug 20 09:58:14 BST 2018
+#Tue Aug 21 09:57:17 BST 2018
 \!/=
 /configuration/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true
 /configuration/org.eclipse.ui.ide/MAX_RECENT_WORKSPACES=10
-/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=C\:\\dev\\workspace\nC\:\\dev\\java\nC\:\\dev\\java\\spring_sample
+/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=C\:\\dev\\\nC\:\\dev\\workspace\nC\:\\dev\\java\nC\:\\dev\\java\\spring_sample
 /configuration/org.eclipse.ui.ide/RECENT_WORKSPACES_PROTOCOL=3
 /configuration/org.eclipse.ui.ide/SHOW_RECENT_WORKSPACES=false
 /configuration/org.eclipse.ui.ide/SHOW_WORKSPACE_SELECTION_DIALOG=true
@@ -22,7 +22,6 @@
 /instance/org.eclipse.ant.ui/org.eclipse.ant.ui.tagsColor_bold=true
 /instance/org.eclipse.ant.ui/org.eclipse.ant.ui.textColor=217,232,247
 /instance/org.eclipse.ant.ui/overriddenByCSS=,org.eclipse.ant.ui.commentsColor,org.eclipse.ant.ui.constantStringsColor,org.eclipse.ant.ui.constantStringsColor_italic,org.eclipse.ant.ui.dtdColor,org.eclipse.ant.ui.processingInstructionsColor,org.eclipse.ant.ui.processingInstructionsColor_bold,org.eclipse.ant.ui.tagsColor,org.eclipse.ant.ui.tagsColor_bold,org.eclipse.ant.ui.textColor,org.eclipse.ant.ui.debugColor,org.eclipse.ant.ui.errorColor,org.eclipse.ant.ui.informationColor,
-/instance/org.eclipse.core.net/org.eclipse.core.net.hasMigrated=true
 /instance/org.eclipse.core.resources/version=1
 /instance/org.eclipse.debug.core/prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions/>\r\n
 /instance/org.eclipse.debug.ui/org.eclipse.debug.ui.MemoryHistoryKnownColor=235,235,235
@@ -43,6 +42,8 @@
 /instance/org.eclipse.e4.ui.css.swt.theme/themeid=org.eclipse.e4.ui.css.theme.e4_dark_linux
 /instance/org.eclipse.e4.ui.workbench.renderers.swt/enableMRU=true
 /instance/org.eclipse.e4.ui.workbench.renderers.swt/themeEnabled=true
+/instance/org.eclipse.egit.core/GitRepositoriesView.GitDirectories=C\:\\dev\\design_patterns\\.git;
+/instance/org.eclipse.egit.core/GitRepositoriesView.GitDirectories.relative=design_patterns\\.git;
 /instance/org.eclipse.egit.core/core_autoIgnoreDerivedResources=false
 /instance/org.eclipse.epp.logging.aeri.ide/configured=true
 /instance/org.eclipse.epp.logging.aeri.ide/resetSendMode=KEEP
@@ -51,6 +52,9 @@
 /instance/org.eclipse.epp.mpc.ui/native-borders=false
 /instance/org.eclipse.epp.mpc.ui/overriddenByCSS=,native-borders,
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.JRE_LIB=C\:/Program Files/Java/jre1.8.0_181/lib/rt.jar
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.JRE_SRC=
+/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.inlineJsrBytecode=enabled
 /instance/org.eclipse.jdt.core/org.eclipse.jdt.core.compiler.codegen.targetPlatform=1.8
@@ -64,7 +68,7 @@
 /instance/org.eclipse.jdt.ui/content_assist_completion_replacement_background=200,200,0
 /instance/org.eclipse.jdt.ui/content_assist_completion_replacement_foreground=200,0,0
 /instance/org.eclipse.jdt.ui/content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.recommenders.calls.rcp.proposalCategory.templates\u0000org.eclipse.mylyn.java.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.recommenders.chain.rcp.proposalCategory.chain\u0000
-/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Enum"><rhs name\="javax.persistence.CascadeType"/><rhs name\="javax.persistence.FetchType"/></lhs></history>
+/instance/org.eclipse.jdt.ui/content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.StringBuilder"/></lhs><lhs name\="java.lang.AbstractStringBuilder"><rhs name\="java.lang.StringBuilder"/></lhs><lhs name\="java.lang.Appendable"><rhs name\="java.lang.StringBuilder"/></lhs><lhs name\="com.pluralsight.structural.decorator.Sandwich"><rhs name\="com.pluralsight.structural.decorator.DressingDecorator"/><rhs name\="com.pluralsight.structural.decorator.MeatDecorator"/><rhs name\="com.pluralsight.structural.decorator.SimpleSandwich"/></lhs><lhs name\="org.springframework.core.env.EnvironmentCapable"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.beans.factory.ListableBeanFactory"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.beans.factory.BeanFactory"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.beans.factory.HierarchicalBeanFactory"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.context.MessageSource"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.context.ApplicationEventPublisher"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.core.io.support.ResourcePatternResolver"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.core.io.ResourceLoader"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="org.springframework.context.ApplicationContext"><rhs name\="org.springframework.context.support.ClassPathXmlApplicationContext"/></lhs><lhs name\="com.tutorialspoint.HelloWorld"><rhs name\="com.tutorialspoint.HelloWorld"/></lhs><lhs name\="com.tutorialspoint.TextEditor"><rhs name\="com.tutorialspoint.TextEditor"/></lhs></history>
 /instance/org.eclipse.jdt.ui/content_assist_number_of_computers=27
 /instance/org.eclipse.jdt.ui/content_assist_parameters_background=52,57,61
 /instance/org.eclipse.jdt.ui/content_assist_parameters_foreground=238,238,238
@@ -173,6 +177,7 @@
 /instance/org.eclipse.mylyn.tasks.ui/migrated.task.repositories.secure.store=true
 /instance/org.eclipse.mylyn.tasks.ui/org.eclipse.mylyn.tasks.ui.filters.nonmatching=true
 /instance/org.eclipse.mylyn.tasks.ui/org.eclipse.mylyn.tasks.ui.filters.nonmatching.encouraged=true
+/instance/org.eclipse.mylyn.tasks.ui/org.eclipse.mylyn.tasks.ui.welcome.message=true
 /instance/org.eclipse.mylyn.wikitext.ui/block-h1=font-size\: 120%; font-weight\: bold; color\: \#1290c3;
 /instance/org.eclipse.mylyn.wikitext.ui/block-h2=font-size\: 110%; font-weight\: bold; color\: \#1290c3;
 /instance/org.eclipse.mylyn.wikitext.ui/block-h3=font-size\: 105%; font-weight\: bold; color\: \#1290c3;
@@ -239,6 +244,7 @@
 /instance/org.eclipse.ui.editors/searchResultIndicationColor=94,94,94
 /instance/org.eclipse.ui.editors/searchResultTextStyle=BOX
 /instance/org.eclipse.ui.editors/secondaryIPColor=90,90,90
+/instance/org.eclipse.ui.editors/showWhitespaceCharacters=true
 /instance/org.eclipse.ui.editors/spellingIndicationColor=253,170,211
 /instance/org.eclipse.ui.editors/writeOccurrenceIndicationColor=27,98,145
 /instance/org.eclipse.ui.ide/PROBLEMS_FILTERS_MIGRATE=true
@@ -414,9 +420,12 @@
 /instance/org.eclipse.wst.xml.ui/tagBorder=\#808080 | null | false | false | false | false
 /instance/org.eclipse.wst.xml.ui/tagName=\#03a8d8 | null | true | false | false | false
 /instance/org.eclipse.wst.xml.ui/xmlContent=\#D9E8F7 | null | false | false | false | false
+/instance/org.springframework.ide.eclipse.boot.dash\:Cloud\ Foundry/runTargets=[]
 /instance/org.springframework.ide.eclipse.config.ui//com.springsource.config.ui.prefs.activePageIndex\:/FitnessTracker/src/main/resources/jpaConext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 /instance/org.springframework.ide.eclipse.config.ui//com.springsource.config.ui.prefs.activePageIndex\:/FitnessTracker/src/main/resources/jpaContext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 /instance/org.springframework.ide.eclipse.config.ui//com.springsource.config.ui.prefs.activePageIndex\:/FitnessTracker/src/main/webapp/WEB-INF/config/servlet-config.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+/instance/org.springframework.ide.eclipse.config.ui//com.springsource.config.ui.prefs.activePageIndex\:/helloworld/src/Beans.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+/instance/org.springframework.ide.eclipse.config.ui//com.springsource.config.ui.prefs.activePageIndex\:/helloworld/src/main/resources/Beans.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 /instance/org.springframework.ide.eclipse.imports/org.springframework.ide.eclipse.imports.importStaticsInstanceScope=true
 /instance/org.springsource.ide.eclipse.commons.configurator/org.springsource.ide.eclipse.commons.configurator.processed=true
 /instance/org.springsource.ide.eclipse.commons.core/dashboard.feeds.blogs=https\://spring.io/blog.atom
@@ -428,7 +437,6 @@
 @net.sourceforge.vrapper.eclipse=0.72.0
 @org.eclipse.ajdt.ui=2.2.4.201805281636
 @org.eclipse.ant.ui=3.7.100.v20180512-1141
-@org.eclipse.core.net=1.3.200.v20180515-0858
 @org.eclipse.core.resources=3.13.0.v20180512-1138
 @org.eclipse.debug.core=3.12.0.v20180509-0959
 @org.eclipse.debug.ui=3.13.0.v20180514-0621
