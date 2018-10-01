@@ -342,31 +342,31 @@ cabbrev make <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'make!' : 'make')<CR>
 " nnoremap <F2> :YcmCompleter GoToDeclaration<CR>
 " nnoremap <F3> :YcmCompleter GoTo<CR>
 " nnoremap <F4> :YcmCompleter GetDoc<CR>
-"
-" " map toggling of quickfix view to F5
-" map <silent> <F5> :copen<CR>
-" autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
-"
-" " When F6 is pressed, a numbered list of buffer names is printed, and the user
-" " needs to type a single number based on the "menu" and press enter to switch
-" " to that buffer
-" :nnoremap <F6> :buffers<CR>:buffer<Space>
-"
-" " map finding of file in NERDTree to F7
-" map <silent> <F7> :NERDTreeFind<CR>
-"
-" " map toggling of NERDTree to F8
-" map <silent> <F8> :NERDTreeToggle<CR>
-"
-" " map toggling of tagbar to F9
-" map <silent> <F9> :TagbarToggle<CR>
-"
-" " shortcut F10 for toggling paste and nopaste:
-" set pastetoggle=<F10>
-"
-" " bind \ (backward slash) to grep shortcut
-" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-" nnoremap \ :Ag<SPACE>
+
+" map toggling of quickfix view to F5
+map <silent> <F5> :copen<CR>
+autocmd BufReadPost quickfix nnoremap <buffer> <F5> :ccl<CR>
+
+" When F6 is pressed, a numbered list of buffer names is printed, and the user
+" needs to type a single number based on the "menu" and press enter to switch
+" to that buffer
+:nnoremap <F6> :buffers<CR>:buffer<Space>
+
+" map finding of file in NERDTree to F7
+map <silent> <F7> :NERDTreeFind<CR>
+
+" map toggling of NERDTree to F8
+map <silent> <F8> :NERDTreeToggle<CR>
+
+" map toggling of tagbar to F9
+map <silent> <F9> :TagbarToggle<CR>
+
+" shortcut F10 for toggling paste and nopaste:
+set pastetoggle=<F10>
+
+" bind \ (backward slash) to grep shortcut
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
 
 " -----------------------------------------------------------------------------
 " LEADER KEY USES
