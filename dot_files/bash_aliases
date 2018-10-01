@@ -278,6 +278,7 @@ alias cdo='clear_dirs'
 alias cd_ws='cd ~/workspace'
 alias cd_home='cd /mnt/c/Users/kmcmanamon'
 alias cd_desktop='cd /mnt/c/Users/kmcmanamon/Desktop'
+alias cd_dev='cd /cygdrive/c/dev'
 
 # nice shortcut to make navigating up directories more efficient:
 
