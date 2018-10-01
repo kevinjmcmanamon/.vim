@@ -4,6 +4,9 @@ alias grep='~/.my_grep'
 # otherwise:
 alias grepn='~/.my_grep -n'
 
+# set alias so that the silver searcher ignores all target directories:
+alias ag='ag --ignore-dir target'
+
 # I don't want any rm commands going into my bash history (the reason I've
 # previous deleted stuff by mistake was by using the arrow keys to use a
 # previous command, and hitting enter before realising that I was on an 'rm'
