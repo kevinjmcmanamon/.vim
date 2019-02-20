@@ -13,11 +13,11 @@ alias ag='ag --ignore-dir target'
 # command). Therefore I remove all occurrences of 'rm' from the history file by
 # default.  remove all lines starting with 'rm' (including starting
 # whitespace):
-sed -i '/^ *\brm\b/d' $HISTFILE
+sed -i "" '/^ *\brm\b/d' $HISTFILE
 # remove all lines starting with 'sudo rm' (including starting whitespace):
-sed -i '/^ *\bsudo rm\b/d' $HISTFILE
+sed -i "" '/^ *\bsudo rm\b/d' $HISTFILE
 # remove all lines containing '/bin/rm'
-sed -i '\#/bin/rm#d' $HISTFILE
+sed -i "" '\#/bin/rm#d' $HISTFILE
 
 # Furthermore, update the HISTIGNORE env variable to ignore all rm commands:
 export HISTIGNORE="$HISTIGNORE:&:rm *:sudo rm *:/bin/rm *"
@@ -93,8 +93,9 @@ fi
 # -----------------------------------------------------------------------------
 
 # set aliases for git (with useful tab-completion, even when using aliases)
-source /usr/share/bash-completion/bash_completion
-_completion_loader git
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
 alias g='git'
 __git_complete g _git
 alias gs='git status'
@@ -129,7 +130,7 @@ __git_complete gpap _git_pull
 # Call git pull on the ~/.vim directory to ensure I'm always up to date:
 # Only done if there is only one bash shell running (so that it doesn't run
 # every time I open a new shell):
-if [ $(pgrep -c bash) -le 2 ]; then
+if [ $(pgrep bash | wc -l) -le 1 ]; then
   echo "Updating ~/.vim repository..."
   cd ~/.vim >/dev/null && git pull --prune https://github.com/kevinjmcmanamon/.vim && cd ~ >/dev/null
 

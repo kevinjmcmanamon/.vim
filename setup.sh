@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Note: Won't be able to run this on macos yet.  I had to just go through the
+# different sections manually to apply the required updates and fix any issues
+# that arised.  In particular, I had to:
+# * update bash version to > 4.0 (default is 3.x)
+# * use .bash_profile, instead of .bashrc
+
 set -e
 
 if [ $# -eq 0 ]
@@ -65,6 +71,7 @@ if [ "$LINKS" = "true" ]; then
     # Create sym links to config files:
     ln -sf "$DIR"/dot_files/my_grep ~/.my_grep
     ln -sf "$DIR"/dot_files/bash_aliases ~/.bash_aliases
+    ln -sf "$DIR"/dot_files/bash_profile ~/.bash_profile
     ln -sf "$DIR"/dot_files/gitignore ~/.gitignore
     ln -sf "$DIR"/dot_files/gitconfig ~/.gitconfig
     ln -sf "$DIR"/dot_files/tmux.conf ~/.tmux.conf
