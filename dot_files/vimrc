@@ -649,10 +649,6 @@ let wiki_1.syntax = 'markdown'
 let g:vimwiki_list = [wiki_1]
 " let g:vimwiki_list = [wiki_1, wiki_2]
 
-" set column width to be 42 for vimwiki files (to suit mobile viewing)
-autocmd FileType vimwiki setlocal colorcolumn=42
-autocmd FileType vimwiki setlocal tw=42
-
 " -----------------------------------------------------------------------------
 " UNDOTREE
 " -----------------------------------------------------------------------------
