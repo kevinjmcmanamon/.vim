@@ -6,3 +6,5 @@ fi
 
 source ~/.bash_aliases
 
+# export PATH="/usr/local/opt/libxml2/bin:$PATH"
+alias dev='ssh -p620 -A kjm@dev.administratehq.com'
