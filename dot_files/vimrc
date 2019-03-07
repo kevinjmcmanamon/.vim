@@ -308,16 +308,14 @@ nnoremap <CR> :noh<CR> :set ic<CR><CR>
 " set lazy redraw (speeds up scrolling and macro playback)
 set lazyredraw
 
-" remap Escape key to jk and kj to make it far quicker to return to normal mode
+" remap Escape key to jk to make it far quicker to return to normal mode
 imap jk <Esc>
-imap kj <Esc>
 
-" remap jk and kj for command line mode also (note: mapping to <Esc> in
+" remap jk for command line mode also (note: mapping to <Esc> in
 " command line mode will submit the command-line as if pressing Return rather.
 " To create a mapping to act like Esc in command-line mode, you must map to
 " <C-c> instead.
 cmap jk <C-c>
-cmap kj <C-c>
 
 " Use ag over grep
 set grepprg=ag\ --nogroup\ --nocolor
