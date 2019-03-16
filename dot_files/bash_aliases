@@ -131,12 +131,14 @@ __git_complete gpap _git_pull
 # every time I open a new shell):
 if [ $(pgrep -c bash) -le 2 ]; then
   echo "Updating ~/.vim repository..."
+  CWD=$(pwd)
   cd ~/.vim >/dev/null && git pull --prune https://github.com/kevinjmcmanamon/.vim && cd ~ >/dev/null
 
   # clone or pull bash-git-prompt:
   echo "Updating ~/.bash-git-prompt repository..."
   git -C ~/.bash-git-prompt pull || \
     git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+  cd ${CWD}
 fi
 
 # Set PROMPT_COMMAND so that all commands, from all terminals, are saved into
