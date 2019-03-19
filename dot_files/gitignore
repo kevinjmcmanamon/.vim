@@ -8,3 +8,4 @@ build
 install
 devel
 artifacts
+.vscode
